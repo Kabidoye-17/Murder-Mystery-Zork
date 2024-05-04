@@ -1,0 +1,28 @@
+#include "zork.h"
+
+Zork::Zork() {}
+
+void Zork::createRooms(){
+    room *mainHall, *attic, *bedroom, *kitchen, *garden, *sittingRoom;
+    mainHall = new room();
+    mainHall->setExits(attic, NULL, garden, sittingRoom);
+    mainHall->setPageNumber(2);
+    
+    attic = new room();
+    attic->setExits(NULL, mainHall, kitchen, bedroom);
+    attic->setPageNumber(5);
+    
+    bedroom = new room();
+    bedroom->setExits(NULL, sittingRoom, attic, NULL);
+    bedroom->setPageNumber(4);
+    
+    kitchen = new room();
+    kitchen->setExits(NULL, garden, NULL, attic);
+    kitchen->setPageNumber(6);
+    
+    garden = n
+    garden = new room(kitchen, NULL, NULL, mainHall);
+    garden->setPageNumber(7);
+    sittingRoom = new room(bedroom, NULL, mainHall, NULL);
+    sittingRoom->setPageNumber(3);
+}

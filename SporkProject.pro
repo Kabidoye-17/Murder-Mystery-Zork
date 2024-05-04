@@ -11,11 +11,13 @@ CONFIG += c++17
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    room.cpp
+    room.cpp \
+    roomController.cpp
 
 HEADERS += \
     mainwindow.h \
-    room.h
+    room.h \
+    roomController.h
 
 FORMS += \
     mainwindow.ui
