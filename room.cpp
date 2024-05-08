@@ -11,10 +11,18 @@ void room::setPageNumber(int pn){
     this->pageNumber = pn;
 }
 
-int room::getPageNumber(){
+int room::getPageNumber() const{
     return this->pageNumber;
 }
 
 map<string, room *> room::getExits(){
     return this->exits;
+}
+
+void room::setPuzzle(puzzle* obj){
+    this->roomPuzzle = obj;
+}
+
+puzzle* room::getPuzzle() {
+    return roomPuzzle;
 }

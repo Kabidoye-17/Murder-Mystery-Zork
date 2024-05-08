@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "roomController.h"
+#include <string>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -17,6 +18,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void correctnessCheck(string uc);
 
 
 private slots:
@@ -32,6 +34,16 @@ private slots:
     void on_rightButton_clicked();
 
     void on_leftButton_clicked();
+
+    void on_atticPuzzle_clicked();
+
+    void on_PuzzleButton_clicked();
+
+    void on_aButton_clicked();
+
+    void on_bButton_clicked();
+
+    void on_cButton_clicked();
 
 private:
     Ui::MainWindow *ui;

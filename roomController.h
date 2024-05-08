@@ -1,7 +1,8 @@
 #ifndef ROOMCONTROLLER_H
 #define ROOMCONTROLLER_H
 #include "room.h"
-
+#include "object.h"
+#include"mathpuzzle.h"
 using namespace std;
 
 class roomController{

@@ -1,8 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "roomController.h"
+#include <QTimer>
+#include <iostream>
 using namespace std;
-
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
@@ -63,4 +64,69 @@ void MainWindow::on_leftButton_clicked()
     int nextPage = rc->switchRoom(&direction);
     ui->stackedWidget->setCurrentIndex(nextPage);
 }
+
+
+
+void MainWindow::on_PuzzleButton_clicked()
+{
+    room r = rc->getCurrentRoom();
+    puzzle* p = r.getPuzzle();
+
+    object* pAsObject = dynamic_cast<object*>(p);
+    if (pAsObject->getInteract() == 1){
+
+        ui->question->setText(QString::fromStdString(p->getQuestion()));
+        ui->aAnswer->setText(QString::fromStdString(p->getAnswers()[0]));
+        ui->bAnswer->setText(QString::fromStdString(p->getAnswers()[1]));
+        ui->cAnswer->setText(QString::fromStdString(p->getAnswers()[2]));
+        ui->gameOverview->setText(QString::fromStdString(p->displayGameOverview()));
+        ui->correctness->hide();
+        ui->stackedWidget->setCurrentIndex(8);
+
+    }
+
+}
+
+
+void MainWindow::on_aButton_clicked()
+{
+    string userChoice = ui->aAnswer->text().toStdString();
+    correctnessCheck(userChoice);
+
+}
+
+void MainWindow::on_bButton_clicked()
+{
+    string userChoice = ui->bAnswer->text().toStdString();
+    correctnessCheck(userChoice);
+}
+
+void MainWindow::on_cButton_clicked()
+{
+    string userChoice = ui->cAnswer->text().toStdString();
+    correctnessCheck(userChoice);
+}
+
+void MainWindow::correctnessCheck(string uc){
+    room r = rc->getCurrentRoom();
+    puzzle* p = r.getPuzzle();
+    string correctAnswer = p->getCorrectAnswer();
+    object* pAsObject = dynamic_cast<object*>(p);
+    if (uc == correctAnswer){
+        ui->correctness->setText(QString::fromStdString("Correct"));
+        ui->correctness->setStyleSheet("color: rgb(3, 252, 44);	font: 900 32pt 'Segoe UI Black';qproperty-alignment: AlignCenter; ");
+        pAsObject->setInteract(false);
+    } else {
+        ui->correctness->setText(QString::fromStdString("Incorrect"));
+        ui->correctness->setStyleSheet("color: rgb(201, 8, 18); font: 900 32pt 'Segoe UI Black';qproperty-alignment: AlignCenter;");
+    }
+    ui->correctness->show();
+    QTimer::singleShot(1000, this, [=]() {
+        ui->stackedWidget->setCurrentIndex(r.getPageNumber());
+    });
+}
+
+
+
+
 
