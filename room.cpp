@@ -24,5 +24,13 @@ void room::setPuzzle(puzzle* obj){
 }
 
 puzzle* room::getPuzzle() {
-    return roomPuzzle;
+    return this->roomPuzzle;
+}
+
+Character* room::getCharacter(){
+    return this->roomCharacter;
+}
+
+void room::setCharacter(Character *c){
+    this->roomCharacter = c;
 }

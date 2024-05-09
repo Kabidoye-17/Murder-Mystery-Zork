@@ -4,6 +4,7 @@ release/mainwindow.o
 release/mathpuzzle.o
 release/object.o
 release/puzzle.o
+release/riddlepuzzle.o
 release/room.o
 release/roomController.o
 release/qrc_resource.o

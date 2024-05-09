@@ -35,24 +35,24 @@ public:
     QPushButton *phone;
     QWidget *sittingRoom;
     QLabel *sittingRoombg;
-    QLabel *theDog;
     QLabel *dogCharLabel;
+    QPushButton *theDog;
     QWidget *bedroom;
     QLabel *bedroombg;
     QPushButton *theWife;
     QLabel *wifeCharLabel;
     QWidget *Attic;
     QLabel *Atticbg;
-    QLabel *theGhost;
     QLabel *ghostCharLabel;
+    QPushButton *theGhost;
     QWidget *Kitchen;
     QLabel *kitchenbg;
-    QLabel *theChef;
     QLabel *chefCharLabel;
+    QPushButton *theChef;
     QWidget *Garden;
     QLabel *gardenbg;
-    QLabel *theGardener;
     QLabel *gardenerCharLabel;
+    QPushButton *theGardener;
     QWidget *questionPage;
     QPushButton *aButton;
     QPushButton *bButton;
@@ -69,6 +69,8 @@ public:
     QPushButton *rightButton;
     QPushButton *leftButton;
     QPushButton *PuzzleButton;
+    QLabel *objectDescription;
+    QLabel *characterClue;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -153,12 +155,6 @@ public:
         sittingRoombg->setObjectName("sittingRoombg");
         sittingRoombg->setGeometry(QRect(0, 0, 971, 421));
         sittingRoombg->setStyleSheet(QString::fromUtf8("border-image: url(:/images/sittingRoom.png);"));
-        theDog = new QLabel(sittingRoom);
-        theDog->setObjectName("theDog");
-        theDog->setGeometry(QRect(50, 180, 251, 201));
-        theDog->setStyleSheet(QString::fromUtf8("QLabel#theDog{\n"
-"	border-image: url(:/images/doggo.png);\n"
-"}"));
         dogCharLabel = new QLabel(sittingRoom);
         dogCharLabel->setObjectName("dogCharLabel");
         dogCharLabel->setGeometry(QRect(100, 380, 91, 20));
@@ -166,6 +162,10 @@ public:
 "	color: rgb(0, 0, 0);\n"
 "	font: 9pt \"8514oem\";\n"
 "}"));
+        theDog = new QPushButton(sittingRoom);
+        theDog->setObjectName("theDog");
+        theDog->setGeometry(QRect(40, 210, 211, 171));
+        theDog->setStyleSheet(QString::fromUtf8("border-image: url(:/images/doggo.png);"));
         stackedWidget->addWidget(sittingRoom);
         bedroom = new QWidget();
         bedroom->setObjectName("bedroom");
@@ -195,18 +195,18 @@ public:
         Atticbg->setObjectName("Atticbg");
         Atticbg->setGeometry(QRect(0, 0, 971, 421));
         Atticbg->setStyleSheet(QString::fromUtf8("border-image: url(:/images/attic.png);"));
-        theGhost = new QLabel(Attic);
-        theGhost->setObjectName("theGhost");
-        theGhost->setGeometry(QRect(460, 210, 101, 131));
-        theGhost->setStyleSheet(QString::fromUtf8("QLabel#theGhost{\n"
-"	border-image: url(:/images/theGhost.png);\n"
-"}"));
         ghostCharLabel = new QLabel(Attic);
         ghostCharLabel->setObjectName("ghostCharLabel");
         ghostCharLabel->setGeometry(QRect(440, 350, 131, 20));
         ghostCharLabel->setStyleSheet(QString::fromUtf8("QLabel#ghostCharLabel{\n"
 "	color: rgb(0, 0, 0);\n"
 "	font: 9pt \"8514oem\";\n"
+"}"));
+        theGhost = new QPushButton(Attic);
+        theGhost->setObjectName("theGhost");
+        theGhost->setGeometry(QRect(442, 188, 111, 151));
+        theGhost->setStyleSheet(QString::fromUtf8("QPushButton#theGhost{\n"
+"	border-image: url(:/images/theGhost.png);\n"
 "}"));
         stackedWidget->addWidget(Attic);
         Kitchen = new QWidget();
@@ -215,13 +215,6 @@ public:
         kitchenbg->setObjectName("kitchenbg");
         kitchenbg->setGeometry(QRect(0, 0, 971, 421));
         kitchenbg->setStyleSheet(QString::fromUtf8("border-image: url(:/images/kitchen.png);"));
-        theChef = new QLabel(Kitchen);
-        theChef->setObjectName("theChef");
-        theChef->setGeometry(QRect(100, 130, 101, 181));
-        theChef->setStyleSheet(QString::fromUtf8("QLabel#theChef{\n"
-"border-image: url(:/images/theChef.gif);\n"
-"}\n"
-""));
         chefCharLabel = new QLabel(Kitchen);
         chefCharLabel->setObjectName("chefCharLabel");
         chefCharLabel->setGeometry(QRect(110, 320, 91, 20));
@@ -229,6 +222,10 @@ public:
 "	color: rgb(0, 0, 0);\n"
 "	font: 9pt \"8514oem\";\n"
 "}"));
+        theChef = new QPushButton(Kitchen);
+        theChef->setObjectName("theChef");
+        theChef->setGeometry(QRect(80, 190, 141, 121));
+        theChef->setStyleSheet(QString::fromUtf8("border-image: url(:/images/theChef.gif);"));
         stackedWidget->addWidget(Kitchen);
         Garden = new QWidget();
         Garden->setObjectName("Garden");
@@ -236,12 +233,6 @@ public:
         gardenbg->setObjectName("gardenbg");
         gardenbg->setGeometry(QRect(0, 0, 971, 421));
         gardenbg->setStyleSheet(QString::fromUtf8("border-image: url(:/images/garden.png);"));
-        theGardener = new QLabel(Garden);
-        theGardener->setObjectName("theGardener");
-        theGardener->setGeometry(QRect(220, 80, 251, 291));
-        theGardener->setStyleSheet(QString::fromUtf8("QLabel#theGardener{\n"
-"	border-image: url(:/images/theGardener.png);\n"
-"}"));
         gardenerCharLabel = new QLabel(Garden);
         gardenerCharLabel->setObjectName("gardenerCharLabel");
         gardenerCharLabel->setGeometry(QRect(290, 340, 131, 20));
@@ -249,6 +240,10 @@ public:
 "	color: rgb(0, 0, 0);\n"
 "	font: 9pt \"8514oem\";\n"
 "}"));
+        theGardener = new QPushButton(Garden);
+        theGardener->setObjectName("theGardener");
+        theGardener->setGeometry(QRect(190, 90, 321, 261));
+        theGardener->setStyleSheet(QString::fromUtf8("border-image: url(:/images/theGardener.png);"));
         stackedWidget->addWidget(Garden);
         questionPage = new QWidget();
         questionPage->setObjectName("questionPage");
@@ -371,13 +366,31 @@ public:
 "}"));
         PuzzleButton = new QPushButton(centralwidget);
         PuzzleButton->setObjectName("PuzzleButton");
-        PuzzleButton->setGeometry(QRect(990, 570, 51, 61));
+        PuzzleButton->setGeometry(QRect(890, 570, 51, 61));
         PuzzleButton->setStyleSheet(QString::fromUtf8("border-image: url(:/images/puzzleIcon.png);"));
+        objectDescription = new QLabel(centralwidget);
+        objectDescription->setObjectName("objectDescription");
+        objectDescription->setGeometry(QRect(770, 510, 281, 41));
+        objectDescription->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
+"border-radius: 15px; border: 5px solid white;\n"
+"color: rgb(0, 0, 0);\n"
+"font: 700 6pt \"8514oem\";\n"
+"qproperty-alignment: AlignCenter; \n"
+""));
+        characterClue = new QLabel(centralwidget);
+        characterClue->setObjectName("characterClue");
+        characterClue->setGeometry(QRect(110, 20, 941, 41));
+        characterClue->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
+"border-radius: 15px; border: 5px solid white;\n"
+"color: rgb(0, 0, 0);\n"
+"font: 700 9pt \"8514oem\";\n"
+"qproperty-alignment: AlignCenter; \n"
+""));
         MainWindow->setCentralWidget(centralwidget);
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(8);
+        stackedWidget->setCurrentIndex(7);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -393,20 +406,20 @@ public:
         mainHallbg->setText(QString());
         phone->setText(QString());
         sittingRoombg->setText(QString());
-        theDog->setText(QString());
         dogCharLabel->setText(QCoreApplication::translate("MainWindow", "The Dog", nullptr));
+        theDog->setText(QString());
         bedroombg->setText(QString());
         theWife->setText(QString());
         wifeCharLabel->setText(QCoreApplication::translate("MainWindow", "The Wife", nullptr));
         Atticbg->setText(QString());
-        theGhost->setText(QString());
         ghostCharLabel->setText(QCoreApplication::translate("MainWindow", "Ella's Ghost", nullptr));
+        theGhost->setText(QString());
         kitchenbg->setText(QString());
-        theChef->setText(QString());
         chefCharLabel->setText(QCoreApplication::translate("MainWindow", "The Chef", nullptr));
+        theChef->setText(QString());
         gardenbg->setText(QString());
-        theGardener->setText(QString());
         gardenerCharLabel->setText(QCoreApplication::translate("MainWindow", "The Gardener", nullptr));
+        theGardener->setText(QString());
         aButton->setText(QCoreApplication::translate("MainWindow", "A", nullptr));
         bButton->setText(QCoreApplication::translate("MainWindow", "B", nullptr));
         cButton->setText(QCoreApplication::translate("MainWindow", "C", nullptr));
@@ -422,6 +435,8 @@ public:
         rightButton->setText(QCoreApplication::translate("MainWindow", "\342\206\222", nullptr));
         leftButton->setText(QCoreApplication::translate("MainWindow", "\342\206\220", nullptr));
         PuzzleButton->setText(QString());
+        objectDescription->setText(QString());
+        characterClue->setText(QString());
     } // retranslateUi
 
 };

@@ -46,7 +46,7 @@ border-image: url(:/images/running.png);
      </size>
     </property>
     <property name="currentIndex">
-     <number>8</number>
+     <number>7</number>
     </property>
     <widget class="QWidget" name="titlescreen">
      <property name="maximumSize">
@@ -207,24 +207,6 @@ margin: 0;
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="theDog">
-      <property name="geometry">
-       <rect>
-        <x>50</x>
-        <y>180</y>
-        <width>251</width>
-        <height>201</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QLabel#theDog{
-	border-image: url(:/images/doggo.png);
-}</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
      <widget class="QLabel" name="dogCharLabel">
       <property name="geometry">
        <rect>
@@ -242,6 +224,22 @@ margin: 0;
       </property>
       <property name="text">
        <string>The Dog</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="theDog">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>210</y>
+        <width>211</width>
+        <height>171</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/images/doggo.png);</string>
+      </property>
+      <property name="text">
+       <string/>
       </property>
      </widget>
     </widget>
@@ -319,24 +317,6 @@ margin: 0;
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="theGhost">
-      <property name="geometry">
-       <rect>
-        <x>460</x>
-        <y>210</y>
-        <width>101</width>
-        <height>131</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QLabel#theGhost{
-	border-image: url(:/images/theGhost.png);
-}</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
      <widget class="QLabel" name="ghostCharLabel">
       <property name="geometry">
        <rect>
@@ -356,6 +336,24 @@ margin: 0;
        <string>Ella's Ghost</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="theGhost">
+      <property name="geometry">
+       <rect>
+        <x>442</x>
+        <y>188</y>
+        <width>111</width>
+        <height>151</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton#theGhost{
+	border-image: url(:/images/theGhost.png);
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="Kitchen">
      <widget class="QLabel" name="kitchenbg">
@@ -369,25 +367,6 @@ margin: 0;
       </property>
       <property name="styleSheet">
        <string notr="true">border-image: url(:/images/kitchen.png);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="theChef">
-      <property name="geometry">
-       <rect>
-        <x>100</x>
-        <y>130</y>
-        <width>101</width>
-        <height>181</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QLabel#theChef{
-border-image: url(:/images/theChef.gif);
-}
-</string>
       </property>
       <property name="text">
        <string/>
@@ -412,6 +391,22 @@ border-image: url(:/images/theChef.gif);
        <string>The Chef</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="theChef">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>190</y>
+        <width>141</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/images/theChef.gif);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="Garden">
      <widget class="QLabel" name="gardenbg">
@@ -425,24 +420,6 @@ border-image: url(:/images/theChef.gif);
       </property>
       <property name="styleSheet">
        <string notr="true">border-image: url(:/images/garden.png);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="theGardener">
-      <property name="geometry">
-       <rect>
-        <x>220</x>
-        <y>80</y>
-        <width>251</width>
-        <height>291</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QLabel#theGardener{
-	border-image: url(:/images/theGardener.png);
-}</string>
       </property>
       <property name="text">
        <string/>
@@ -465,6 +442,22 @@ border-image: url(:/images/theChef.gif);
       </property>
       <property name="text">
        <string>The Gardener</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="theGardener">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>90</y>
+        <width>321</width>
+        <height>261</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/images/theGardener.png);</string>
+      </property>
+      <property name="text">
+       <string/>
       </property>
      </widget>
     </widget>
@@ -760,7 +753,7 @@ font: 900 30pt &quot;Gill Sans Nova Ultra Bold&quot;;
    <widget class="QPushButton" name="PuzzleButton">
     <property name="geometry">
      <rect>
-      <x>990</x>
+      <x>890</x>
       <y>570</y>
       <width>51</width>
       <height>61</height>
@@ -768,6 +761,48 @@ font: 900 30pt &quot;Gill Sans Nova Ultra Bold&quot;;
     </property>
     <property name="styleSheet">
      <string notr="true">border-image: url(:/images/puzzleIcon.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="objectDescription">
+    <property name="geometry">
+     <rect>
+      <x>770</x>
+      <y>510</y>
+      <width>281</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 15px; border: 5px solid white;
+color: rgb(0, 0, 0);
+font: 700 6pt &quot;8514oem&quot;;
+qproperty-alignment: AlignCenter; 
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="characterClue">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>20</y>
+      <width>941</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 15px; border: 5px solid white;
+color: rgb(0, 0, 0);
+font: 700 9pt &quot;8514oem&quot;;
+qproperty-alignment: AlignCenter; 
+</string>
     </property>
     <property name="text">
      <string/>

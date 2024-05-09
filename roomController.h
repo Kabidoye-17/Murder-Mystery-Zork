@@ -3,6 +3,8 @@
 #include "room.h"
 #include "object.h"
 #include"mathpuzzle.h"
+#include "riddlepuzzle.h"
+#include "character.h"
 using namespace std;
 
 class roomController{

@@ -6,12 +6,13 @@
 #include <map>
 #include "puzzle.h"
 #include "object.h"
+#include "character.h"
 using namespace std;
 class room {
     private:
         int pageNumber;
         map<string, room*> exits;
-        object* roomCharacter;
+        Character* roomCharacter;
         puzzle* roomPuzzle;
     public:
         void setExits(room *north, room *south, room *east, room *west);
@@ -20,6 +21,8 @@ class room {
         map<string, room*> getExits();
         void setPuzzle(puzzle* obj);
         puzzle* getPuzzle();
+        void setCharacter(Character* c);
+        Character* getCharacter();
 };
 
 #endif // ROOM_H

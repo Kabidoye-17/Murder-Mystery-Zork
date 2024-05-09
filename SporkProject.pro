@@ -15,6 +15,7 @@ SOURCES += \
     mathpuzzle.cpp \
     object.cpp \
     puzzle.cpp \
+    riddlepuzzle.cpp \
     room.cpp \
     roomController.cpp
 
@@ -24,6 +25,7 @@ HEADERS += \
     mathpuzzle.h \
     object.h \
     puzzle.h \
+    riddlepuzzle.h \
     room.h \
     roomController.h
 
