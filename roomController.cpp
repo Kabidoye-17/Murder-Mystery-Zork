@@ -3,6 +3,7 @@
 #include <iostream>
 using namespace std;
 roomController::roomController(){
+    this->currentPlayer = new player();
     createRooms();
 }
 
@@ -92,4 +93,14 @@ int roomController::switchRoom(string *direction){
     }
     // Return the page index of the current room
     return currentRoom->getPageNumber();
+}
+
+void roomController::addToCharacterInventory(Item i){
+    cout << 1 << endl;
+    (*this->currentPlayer)+= i;
+
+}
+
+void roomController::removeFromCharacterInventory(Item i){
+    (*this->currentPlayer) -= i;
 }

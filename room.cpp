@@ -44,3 +44,4 @@ void room::setRoomItem(Item i){
 Item room::getRoomItem(){
     return this->roomItem;
 }
+

@@ -64,6 +64,10 @@ public:
     QLabel *bAnswer;
     QLabel *cAnswer;
     QLabel *correctness;
+    QWidget *itemCollectedPage;
+    QLabel *wonPageHeading;
+    QLabel *itemWon;
+    QPushButton *giveawayButton;
     QPushButton *upButton;
     QPushButton *downButton;
     QPushButton *rightButton;
@@ -328,6 +332,36 @@ public:
 "\n"
 "}"));
         stackedWidget->addWidget(questionPage);
+        itemCollectedPage = new QWidget();
+        itemCollectedPage->setObjectName("itemCollectedPage");
+        itemCollectedPage->setStyleSheet(QString::fromUtf8("QWidget#itemCollectedPage{\n"
+"background-color: rgb(255, 160, 239);\n"
+"}"));
+        wonPageHeading = new QLabel(itemCollectedPage);
+        wonPageHeading->setObjectName("wonPageHeading");
+        wonPageHeading->setGeometry(QRect(310, 0, 501, 91));
+        wonPageHeading->setStyleSheet(QString::fromUtf8("QLabel#wonPageHeading{\n"
+"	color: rgb(255, 8, 160);\n"
+"	font: 900 48pt \"Segoe UI Black\";\n"
+"}"));
+        itemWon = new QLabel(itemCollectedPage);
+        itemWon->setObjectName("itemWon");
+        itemWon->setGeometry(QRect(310, 140, 351, 101));
+        itemWon->setStyleSheet(QString::fromUtf8("QLabel#itemWon{\n"
+"	color: rgb(0, 0, 0);\n"
+"	\n"
+"	font: 500 16pt \"Neue Haas Grotesk Text Pro Medi\";\n"
+"	qproperty-alignment: AlignCenter; \n"
+"}"));
+        giveawayButton = new QPushButton(itemCollectedPage);
+        giveawayButton->setObjectName("giveawayButton");
+        giveawayButton->setGeometry(QRect(360, 280, 251, 61));
+        giveawayButton->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 8, 160);\n"
+"border-radius: 15px; border: 5px solid black;\n"
+"color: rgb(0, 0, 0);\n"
+"font: 500 12pt \"Neue Haas Grotesk Text Pro Medi\";\n"
+"qproperty-alignment: AlignCenter; "));
+        stackedWidget->addWidget(itemCollectedPage);
         upButton = new QPushButton(centralwidget);
         upButton->setObjectName("upButton");
         upButton->setGeometry(QRect(110, 510, 51, 51));
@@ -390,7 +424,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(7);
+        stackedWidget->setCurrentIndex(9);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -430,6 +464,9 @@ public:
         bAnswer->setText(QCoreApplication::translate("MainWindow", "B answer", nullptr));
         cAnswer->setText(QCoreApplication::translate("MainWindow", "C answer", nullptr));
         correctness->setText(QString());
+        wonPageHeading->setText(QCoreApplication::translate("MainWindow", "You Won...", nullptr));
+        itemWon->setText(QCoreApplication::translate("MainWindow", "placeholder", nullptr));
+        giveawayButton->setText(QCoreApplication::translate("MainWindow", "Give to xxx", nullptr));
         upButton->setText(QCoreApplication::translate("MainWindow", "\342\206\221", nullptr));
         downButton->setText(QCoreApplication::translate("MainWindow", "\342\206\223", nullptr));
         rightButton->setText(QCoreApplication::translate("MainWindow", "\342\206\222", nullptr));

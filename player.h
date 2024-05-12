@@ -8,10 +8,10 @@ using namespace std;
 class player
 {
 private:
-    vector<Item> inventory;
+    vector<Item>* inventory;
 
 public:
-    void operator+=(Item i);
+    void operator+=(Item im);
     void operator -=(Item i);
     player();
 };

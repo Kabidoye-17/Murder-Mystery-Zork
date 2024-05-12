@@ -46,7 +46,7 @@ border-image: url(:/images/running.png);
      </size>
     </property>
     <property name="currentIndex">
-     <number>7</number>
+     <number>9</number>
     </property>
     <widget class="QWidget" name="titlescreen">
      <property name="maximumSize">
@@ -662,6 +662,73 @@ qproperty-alignment: AlignCenter;
       </property>
       <property name="text">
        <string/>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="itemCollectedPage">
+     <property name="styleSheet">
+      <string notr="true">QWidget#itemCollectedPage{
+background-color: rgb(255, 160, 239);
+}</string>
+     </property>
+     <widget class="QLabel" name="wonPageHeading">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>0</y>
+        <width>501</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel#wonPageHeading{
+	color: rgb(255, 8, 160);
+	font: 900 48pt &quot;Segoe UI Black&quot;;
+}</string>
+      </property>
+      <property name="text">
+       <string>You Won...</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="itemWon">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>140</y>
+        <width>351</width>
+        <height>101</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel#itemWon{
+	color: rgb(0, 0, 0);
+	
+	font: 500 16pt &quot;Neue Haas Grotesk Text Pro Medi&quot;;
+	qproperty-alignment: AlignCenter; 
+}</string>
+      </property>
+      <property name="text">
+       <string>placeholder</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="giveawayButton">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>280</y>
+        <width>251</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 8, 160);
+border-radius: 15px; border: 5px solid black;
+color: rgb(0, 0, 0);
+font: 500 12pt &quot;Neue Haas Grotesk Text Pro Medi&quot;;
+qproperty-alignment: AlignCenter; </string>
+      </property>
+      <property name="text">
+       <string>Give to xxx</string>
       </property>
      </widget>
     </widget>

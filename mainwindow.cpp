@@ -111,26 +111,33 @@ void MainWindow::on_cButton_clicked()
     string userChoice = ui->cAnswer->text().toStdString();
     correctnessCheck(userChoice);
 }
-
 void MainWindow::correctnessCheck(string uc){
     room* r = rc->getCurrentRoom();
     puzzle* p = r->getPuzzle();
     Character* c = r->getCharacter();
     string correctAnswer = p->getCorrectAnswer();
     object* pAsObject = dynamic_cast<object*>(p);
+
     if (uc == correctAnswer){
         ui->correctness->setText(QString::fromStdString("Correct"));
         ui->correctness->setStyleSheet("color: rgb(3, 252, 44);	font: 900 32pt 'Segoe UI Black';qproperty-alignment: AlignCenter; ");
+        ui->correctness->show();
+        ui->stackedWidget->setCurrentIndex(9);
+        ui->itemWon->setText(QString::fromStdString("The " + r->getRoomItem().getName()));
+        ui->giveawayButton->setText(QString::fromStdString("Give to " + c->getName()));
+        rc->addToCharacterInventory(r->getRoomItem());
         pAsObject->setInteract(false);
-        c->setInteract(true);
+
     } else {
         ui->correctness->setText(QString::fromStdString("Incorrect"));
         ui->correctness->setStyleSheet("color: rgb(201, 8, 18); font: 900 32pt 'Segoe UI Black';qproperty-alignment: AlignCenter;");
+        ui->correctness->show();
+        QTimer::singleShot(1000, this, [=]() {
+            ui->stackedWidget->setCurrentIndex(r->getPageNumber());
+        });
     }
-    ui->correctness->show();
-    QTimer::singleShot(1000, this, [=]() {
-        ui->stackedWidget->setCurrentIndex(r->getPageNumber());
-    });
+
+
 }
 
 
@@ -170,13 +177,9 @@ void MainWindow::on_theGhost_clicked()
 }
 
 void MainWindow::displayCharacterDialogue(){
-    cout << 1<< endl;
     room* r = rc->getCurrentRoom();
-    cout << 2<< endl;
     Character* c = r->getCharacter();
-    cout << 3<< endl;
     string clue = c->getDialogue();
-    cout << 4<< endl;
     ui->characterClue->setText(QString::fromStdString(clue));
     ui->characterClue->show();
     QTimer::singleShot(2000, this, [=]() {
@@ -205,5 +208,16 @@ void MainWindow::on_theDog_clicked()
 void MainWindow::on_theGardener_clicked()
 {
     displayCharacterDialogue();
+}
+
+
+void MainWindow::on_giveawayButton_clicked()
+{
+    room* r = rc->getCurrentRoom();
+    Character* c = r->getCharacter();
+    rc->removeFromCharacterInventory(r->getRoomItem());
+    c->setInteract(true);
+    ui->stackedWidget->setCurrentIndex(r->getPageNumber());
+
 }
 

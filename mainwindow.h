@@ -60,6 +60,8 @@ private slots:
 
     void on_theGardener_clicked();
 
+    void on_giveawayButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     roomController *rc;

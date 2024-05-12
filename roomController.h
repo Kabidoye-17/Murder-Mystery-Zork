@@ -19,6 +19,8 @@ public:
     void setCurrentRoom(room *r);
     int switchRoom(string *direction);
     void createRooms();
+    void addToCharacterInventory(Item i);
+    void removeFromCharacterInventory(Item i);
 
 };
 

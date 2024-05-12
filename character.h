@@ -9,7 +9,6 @@ class Character : public object{
 private:
     string clue;
     string name;
-    bool hasItem;
     string want;
     bool innocence;
 public:
@@ -18,8 +17,6 @@ public:
     string getWant();
     bool getInnocence();
     string getName();
-    void setHasItem(bool b);
-    bool getHasItem();
     string displayObjectDescription() override;
 
 };

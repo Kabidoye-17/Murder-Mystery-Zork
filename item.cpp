@@ -13,3 +13,6 @@ string Item::getName(){
 bool Item::operator==(Item other) {
     return (name == other.name);
 }
+Item::~Item(){
+
+}

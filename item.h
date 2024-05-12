@@ -13,6 +13,7 @@ public:
     string getName();
     bool operator==(Item other);
     Item();
+    ~Item();
 };
 
 #endif // ITEM_H
