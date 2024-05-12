@@ -10,10 +10,12 @@ CONFIG += c++17
 
 SOURCES += \
     character.cpp \
+    item.cpp \
     main.cpp \
     mainwindow.cpp \
     mathpuzzle.cpp \
     object.cpp \
+    player.cpp \
     puzzle.cpp \
     riddlepuzzle.cpp \
     room.cpp \
@@ -21,9 +23,11 @@ SOURCES += \
 
 HEADERS += \
     character.h \
+    item.h \
     mainwindow.h \
     mathpuzzle.h \
     object.h \
+    player.h \
     puzzle.h \
     riddlepuzzle.h \
     room.h \

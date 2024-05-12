@@ -1,8 +1,10 @@
 debug/character.o
+debug/item.o
 debug/main.o
 debug/mainwindow.o
 debug/mathpuzzle.o
 debug/object.o
+debug/player.o
 debug/puzzle.o
 debug/riddlepuzzle.o
 debug/room.o

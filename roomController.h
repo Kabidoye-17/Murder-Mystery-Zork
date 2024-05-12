@@ -5,14 +5,17 @@
 #include"mathpuzzle.h"
 #include "riddlepuzzle.h"
 #include "character.h"
+#include "player.h"
 using namespace std;
-
 class roomController{
 private:
-    room currentRoom;
+    room* currentRoom;
+    player* currentPlayer;
+
 public:
     roomController();
-    room getCurrentRoom();
+    room* getCurrentRoom();
+    player getPlayer();
     void setCurrentRoom(room *r);
     int switchRoom(string *direction);
     void createRooms();

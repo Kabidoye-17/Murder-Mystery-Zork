@@ -6,12 +6,12 @@ roomController::roomController(){
     createRooms();
 }
 
-room roomController::getCurrentRoom(){
+room* roomController::getCurrentRoom(){
     return this->currentRoom;
 }
 
 void roomController::setCurrentRoom(room *r){
-    currentRoom = *r;
+    currentRoom = r;
 }
 
 void roomController::createRooms(){
@@ -54,32 +54,42 @@ void roomController::createRooms(){
     garden->setPuzzle(gardenPuzzle);
 
     // creating the room Characters and adding them to the rooms
-    Character* theWife = new Character("the wife", "wife clue", true);
+    Character* theWife = new Character("the wife", "wife clue", true, "lipstick");
     bedroom->setCharacter(theWife);
-    Character* theDog = new Character("the dog", "dog clue", false);
+    Character* theDog = new Character("the dog", "dog clue", false, "bone");
     sittingRoom->setCharacter(theDog);
-    Character* theGardener = new Character("the gardener", "gardener clue", true);
+    Character* theGardener = new Character("the gardener", "gardener clue", true, "shovel");
     garden->setCharacter(theGardener);
-    Character* theChef = new Character("the chef", "chef clue", true);
+    Character* theChef = new Character("the chef", "chef clue", true, "cheese");
     kitchen->setCharacter(theChef);
-    Character* ellasGhost = new Character("Ella's ghost", "ella's ghost", true);
+    Character* ellasGhost = new Character("Ella's ghost", "ella's ghost clue", true, "potion");
     attic->setCharacter(ellasGhost);
 
+    // create room items and add them to the room
+    Item lipstick("lipstick");
+    bedroom->setRoomItem(lipstick);
+    Item bone("bone");
+    sittingRoom->setRoomItem(bone);
+    Item cheese("cheese");
+    kitchen->setRoomItem(cheese);
+    Item shovel("shovel");
+    garden->setRoomItem(shovel);
+    Item potion("potion");
+    attic->setRoomItem(potion);
 
 
-    currentRoom = *mainHall;
+    currentRoom = mainHall;
 }
 
 int roomController::switchRoom(string *direction){
     // Get the map of exits
-    map<string, room*> exits = currentRoom.getExits();
+    map<string, room*> exits = currentRoom->getExits();
 
     // Get the pointer to the room corresponding to the direction
     room* newRoomPtr = exits[*direction];
-    if (newRoomPtr != nullptr){
-        room newRoom = *newRoomPtr;
-        currentRoom = newRoom;
+    if (newRoomPtr != nullptr) {
+        currentRoom = newRoomPtr;
     }
     // Return the page index of the current room
-    return currentRoom.getPageNumber();
+    return currentRoom->getPageNumber();
 }

@@ -73,9 +73,9 @@ void MainWindow::on_leftButton_clicked()
 
 void MainWindow::on_PuzzleButton_clicked()
 {
-    room r = rc->getCurrentRoom();
-    if (r.getPageNumber() != 2){
-        puzzle* p = r.getPuzzle();
+    room* r = rc->getCurrentRoom();
+    if (r->getPageNumber() != 2){
+        puzzle* p = r->getPuzzle();
         object* pAsObject = dynamic_cast<object*>(p);
         if (pAsObject->getInteract() == 1){
 
@@ -113,9 +113,9 @@ void MainWindow::on_cButton_clicked()
 }
 
 void MainWindow::correctnessCheck(string uc){
-    room r = rc->getCurrentRoom();
-    puzzle* p = r.getPuzzle();
-    Character* c = r.getCharacter();
+    room* r = rc->getCurrentRoom();
+    puzzle* p = r->getPuzzle();
+    Character* c = r->getCharacter();
     string correctAnswer = p->getCorrectAnswer();
     object* pAsObject = dynamic_cast<object*>(p);
     if (uc == correctAnswer){
@@ -129,7 +129,7 @@ void MainWindow::correctnessCheck(string uc){
     }
     ui->correctness->show();
     QTimer::singleShot(1000, this, [=]() {
-        ui->stackedWidget->setCurrentIndex(r.getPageNumber());
+        ui->stackedWidget->setCurrentIndex(r->getPageNumber());
     });
 }
 
@@ -141,9 +141,9 @@ void MainWindow::correctnessCheck(string uc){
 void MainWindow::on_PuzzleButton_pressed()
 {
 
-    room r = rc->getCurrentRoom();
-    if (r.getPageNumber() != 2){
-    puzzle* p = r.getPuzzle();
+    room* r = rc->getCurrentRoom();
+    if (r->getPageNumber() != 2){
+        puzzle* p = r->getPuzzle();
     object* pAsObject = dynamic_cast<object*>(p);
     string od = pAsObject->displayObjectDescription();
     ui->objectDescription->setText(QString::fromStdString(od));
@@ -170,9 +170,13 @@ void MainWindow::on_theGhost_clicked()
 }
 
 void MainWindow::displayCharacterDialogue(){
-    room r = rc->getCurrentRoom();
-    Character* c = r.getCharacter();
+    cout << 1<< endl;
+    room* r = rc->getCurrentRoom();
+    cout << 2<< endl;
+    Character* c = r->getCharacter();
+    cout << 3<< endl;
     string clue = c->getDialogue();
+    cout << 4<< endl;
     ui->characterClue->setText(QString::fromStdString(clue));
     ui->characterClue->show();
     QTimer::singleShot(2000, this, [=]() {

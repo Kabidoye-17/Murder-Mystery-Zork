@@ -1,5 +1,8 @@
 #include "room.h"
 
+room::room(){
+
+}
 void room::setExits(room *north, room *south, room *east, room *west){
     this->exits["North"] = north;
     this->exits["South"] = south;
@@ -33,4 +36,11 @@ Character* room::getCharacter(){
 
 void room::setCharacter(Character *c){
     this->roomCharacter = c;
+}
+
+void room::setRoomItem(Item i){
+    this->roomItem = i;
+}
+Item room::getRoomItem(){
+    return this->roomItem;
 }
