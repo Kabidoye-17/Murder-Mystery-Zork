@@ -1,4 +1,6 @@
 release/character.o
+release/gameInformation.o
+release/inventory.o
 release/item.o
 release/main.o
 release/mainwindow.o

@@ -19,6 +19,7 @@ public:
     string getName();
     string displayObjectDescription() override;
 
+
 };
 
 #endif // CHARACTER_H

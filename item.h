@@ -9,10 +9,9 @@ class Item
 private:
     string name;
 public:
-    Item(string n);
+    Item(string n = "");
     string getName();
     bool operator==(Item other);
-    Item();
     ~Item();
 };
 

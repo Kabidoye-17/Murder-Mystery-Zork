@@ -6,7 +6,11 @@
 #include "riddlepuzzle.h"
 #include "character.h"
 #include "player.h"
+#include "gameInformation.h"
+
 using namespace std;
+using namespace gameInformation;
+
 class roomController{
 private:
     room* currentRoom;

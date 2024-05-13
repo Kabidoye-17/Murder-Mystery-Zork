@@ -1,7 +1,9 @@
 #include "roomController.h"
 #include "room.h"
 #include <iostream>
-using namespace std;
+player::player(){
+
+}
 roomController::roomController(){
     this->currentPlayer = new player();
     createRooms();
@@ -97,10 +99,10 @@ int roomController::switchRoom(string *direction){
 
 void roomController::addToCharacterInventory(Item i){
     cout << 1 << endl;
-    (*this->currentPlayer)+= i;
+    (this->currentPlayer->getInventory())+= i;
 
 }
 
 void roomController::removeFromCharacterInventory(Item i){
-    (*this->currentPlayer) -= i;
+    (this->currentPlayer->getInventory()) -= i;
 }

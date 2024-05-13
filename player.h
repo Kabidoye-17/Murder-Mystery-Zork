@@ -1,19 +1,21 @@
 #ifndef PLAYER_H
 #define PLAYER_H
-#include <vector>
-#include <algorithm>
+#include "inventory.h"
 #include "character.h"
 #include "item.h"
+
 using namespace std;
 class player
 {
 private:
-    vector<Item>* inventory;
+    Inventory playerInventory;
 
 public:
-    void operator+=(Item im);
-    void operator -=(Item i);
     player();
+    Item getItem(Item i);
+    Item* getInventoryList();
+    Inventory getInventory();
+    ~player();
 };
 
 #endif // PLAYER_H

@@ -10,6 +10,8 @@ CONFIG += c++17
 
 SOURCES += \
     character.cpp \
+    gameInformation.cpp \
+    inventory.cpp \
     item.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -23,6 +25,8 @@ SOURCES += \
 
 HEADERS += \
     character.h \
+    gameInformation.h \
+    inventory.h \
     item.h \
     mainwindow.h \
     mathpuzzle.h \

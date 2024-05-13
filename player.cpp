@@ -1,19 +1,46 @@
 #include "player.h"
 #include <iostream>
-
-
-player::player(){
-    this->inventory = new vector<Item>();
+player::~player(){
+    cout << "player memory deallocated"<< endl;
 }
 
-void player::operator+=(Item im){
-    cout << 2<< endl;
-    this->inventory->push_back(im);
-    cout << 3 << endl;
+Inventory player::getInventory(){
+    return this->playerInventory;
 }
-void player::operator -=(Item i){
-    auto it = std::find(inventory->begin(), inventory->end(), i);
-    if (it != inventory->end()) {
-        inventory->erase(it);
+
+Item player::getItem(Item im){
+    // traverses through array until it finds the item it needs, otherwise it returns an empty item
+    for (int i = 0; i < 5; i++){
+        if (playerInventory.inven[i].getName() == im.getName()){
+            return playerInventory.inven[i];
+        }
     }
+    Item temp;
+    return temp;
+}
+
+Item* player::getInventoryList(){
+    // first: traverse through array to find out how many items you actually have
+    int counter = 0;
+    for (int i = 0; i < 5; i++){
+        if (playerInventory.inven[i].getName() != ""){
+            counter ++;
+        }
+    }
+    // second: create an array of the number of actual items in inventory
+
+    Item currentInventory[counter];
+    int cI = 0;
+
+    // third: traverse through the array a second time to add the actual item to your current inventory list
+
+    for (int i = 0; i < 5; i++){
+        if (playerInventory.inven[i].getName() != ""){
+            playerInventory.inven[i] = currentInventory[cI];
+            cI++;
+        }
+    }
+    // return
+
+    return currentInventory;
 }
