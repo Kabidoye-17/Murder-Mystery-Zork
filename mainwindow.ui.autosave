@@ -879,10 +879,29 @@ qproperty-alignment: AlignCenter;
     <property name="geometry">
      <rect>
       <x>830</x>
+      <y>150</y>
+      <width>221</width>
+      <height>341</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>830</x>
       <y>80</y>
       <width>221</width>
-      <height>411</height>
+      <height>71</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 44, 157);</string>
+    </property>
+    <property name="text">
+     <string>Inventory</string>
     </property>
    </widget>
   </widget>
