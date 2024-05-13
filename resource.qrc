@@ -10,5 +10,11 @@
         <file>mainHall.png</file>
         <file>sittingRoom.png</file>
         <file>running.png</file>
+        <file>doggo.png</file>
+        <file>theChef.gif</file>
+        <file>theGardener.png</file>
+        <file>theGhost.png</file>
+        <file>GuessingPhone.png</file>
+        <file>puzzleIcon.png</file>
     </qresource>
 </RCC>

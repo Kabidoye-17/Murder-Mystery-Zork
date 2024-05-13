@@ -35,7 +35,7 @@ border-image: url(:/images/running.png);
      <rect>
       <x>90</x>
       <y>80</y>
-      <width>971</width>
+      <width>741</width>
       <height>421</height>
      </rect>
     </property>
@@ -46,7 +46,7 @@ border-image: url(:/images/running.png);
      </size>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="titlescreen">
      <property name="maximumSize">
@@ -63,7 +63,7 @@ border-image: url(:/images/running.png);
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>971</width>
+        <width>741</width>
         <height>421</height>
        </rect>
       </property>
@@ -82,10 +82,10 @@ margin: 0;
      <widget class="QPushButton" name="playButton">
       <property name="geometry">
        <rect>
-        <x>390</x>
-        <y>240</y>
-        <width>201</width>
-        <height>61</height>
+        <x>280</x>
+        <y>250</y>
+        <width>171</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -115,7 +115,7 @@ margin: 0;
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>971</width>
+        <width>741</width>
         <height>421</height>
        </rect>
       </property>
@@ -135,10 +135,10 @@ margin: 0;
      <widget class="QPushButton" name="readyButton">
       <property name="geometry">
        <rect>
-        <x>380</x>
+        <x>280</x>
         <y>340</y>
-        <width>201</width>
-        <height>61</height>
+        <width>171</width>
+        <height>51</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -159,12 +159,31 @@ margin: 0;
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>971</width>
+        <width>741</width>
         <height>421</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">border-image: url(:/images/mainHall.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="phone">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>140</y>
+        <width>131</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton#phone{
+	border-image: url(:/images/GuessingPhone.png);
+
+}</string>
       </property>
       <property name="text">
        <string/>
@@ -177,12 +196,47 @@ margin: 0;
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>971</width>
+        <width>741</width>
         <height>421</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">border-image: url(:/images/sittingRoom.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="dogCharLabel">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>380</y>
+        <width>91</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel#dogCharLabel{
+	color: rgb(0, 0, 0);
+	font: 9pt &quot;8514oem&quot;;
+}</string>
+      </property>
+      <property name="text">
+       <string>The Dog</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="theDog">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>210</y>
+        <width>211</width>
+        <height>171</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/images/doggo.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -195,7 +249,7 @@ margin: 0;
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>971</width>
+        <width>741</width>
         <height>421</height>
        </rect>
       </property>
@@ -211,8 +265,8 @@ margin: 0;
      <widget class="QPushButton" name="theWife">
       <property name="geometry">
        <rect>
-        <x>170</x>
-        <y>80</y>
+        <x>140</x>
+        <y>100</y>
         <width>131</width>
         <height>191</height>
        </rect>
@@ -226,6 +280,25 @@ margin: 0;
        <string/>
       </property>
      </widget>
+     <widget class="QLabel" name="wifeCharLabel">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>290</y>
+        <width>91</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel#wifeCharLabel{
+	color: rgb(0, 0, 0);
+	font: 9pt &quot;8514oem&quot;;
+}</string>
+      </property>
+      <property name="text">
+       <string>The Wife</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="Attic">
      <widget class="QLabel" name="Atticbg">
@@ -233,12 +306,49 @@ margin: 0;
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>971</width>
+        <width>741</width>
         <height>421</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">border-image: url(:/images/attic.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="ghostCharLabel">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>370</y>
+        <width>131</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel#ghostCharLabel{
+	color: rgb(0, 0, 0);
+	font: 9pt &quot;8514oem&quot;;
+}</string>
+      </property>
+      <property name="text">
+       <string>Ella's Ghost</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="theGhost">
+      <property name="geometry">
+       <rect>
+        <x>330</x>
+        <y>220</y>
+        <width>111</width>
+        <height>151</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton#theGhost{
+	border-image: url(:/images/theGhost.png);
+}</string>
       </property>
       <property name="text">
        <string/>
@@ -251,12 +361,47 @@ margin: 0;
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>971</width>
+        <width>741</width>
         <height>421</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">border-image: url(:/images/kitchen.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="chefCharLabel">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>310</y>
+        <width>91</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel#chefCharLabel{
+	color: rgb(0, 0, 0);
+	font: 9pt &quot;8514oem&quot;;
+}</string>
+      </property>
+      <property name="text">
+       <string>The Chef</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="theChef">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>170</y>
+        <width>141</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/images/theChef.gif);</string>
       </property>
       <property name="text">
        <string/>
@@ -269,7 +414,7 @@ margin: 0;
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>971</width>
+        <width>741</width>
         <height>421</height>
        </rect>
       </property>
@@ -278,6 +423,312 @@ margin: 0;
       </property>
       <property name="text">
        <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="gardenerCharLabel">
+      <property name="geometry">
+       <rect>
+        <x>460</x>
+        <y>320</y>
+        <width>131</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel#gardenerCharLabel{
+	color: rgb(0, 0, 0);
+	font: 9pt &quot;8514oem&quot;;
+}</string>
+      </property>
+      <property name="text">
+       <string>The Gardener</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="theGardener">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>80</y>
+        <width>321</width>
+        <height>261</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/images/theGardener.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="questionPage">
+     <property name="styleSheet">
+      <string notr="true">QWidget#questionPage{
+	background-color: rgb(255, 160, 239);
+}</string>
+     </property>
+     <widget class="QPushButton" name="aButton">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>320</y>
+        <width>171</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton#aButton{
+background-color:rgb(255, 0, 136);
+font: 700 12pt &quot;8514oem&quot;;
+}</string>
+      </property>
+      <property name="text">
+       <string>A</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="bButton">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>320</y>
+        <width>171</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton#bButton{
+background-color:rgb(255, 0, 136);
+font: 700 12pt &quot;8514oem&quot;;
+}</string>
+      </property>
+      <property name="text">
+       <string>B</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="cButton">
+      <property name="geometry">
+       <rect>
+        <x>560</x>
+        <y>320</y>
+        <width>171</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton#cButton{
+background-color:rgb(255, 0, 136);
+font: 700 12pt &quot;8514oem&quot;;
+}</string>
+      </property>
+      <property name="text">
+       <string>C</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="heading">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>0</y>
+        <width>501</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel#heading{
+	color: rgb(255, 8, 160);
+	font: 900 48pt &quot;Segoe UI Black&quot;;
+}</string>
+      </property>
+      <property name="text">
+       <string>Puzzle Time</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="gameOverview">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>100</y>
+        <width>701</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel#gameOverview{
+	color: rgb(0, 0, 0);
+	font: 700 12pt &quot;8514oem&quot;;
+	qproperty-alignment: AlignCenter; 
+}</string>
+      </property>
+      <property name="text">
+       <string>quizDescription</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="question">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>160</y>
+        <width>701</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel#question{
+	color: rgb(0, 0, 0);
+	font: 700 12pt &quot;8514oem&quot;;
+	qproperty-alignment: AlignCenter; 
+}</string>
+      </property>
+      <property name="text">
+       <string>&quot;Question&quot;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="aAnswer">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>290</y>
+        <width>231</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel#aAnswer{
+	color: rgb(0, 0, 0);
+	font: 700 12pt &quot;8514oem&quot;;
+	qproperty-alignment: AlignCenter; 
+}</string>
+      </property>
+      <property name="text">
+       <string>A answer</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="bAnswer">
+      <property name="geometry">
+       <rect>
+        <x>270</x>
+        <y>290</y>
+        <width>211</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel#bAnswer{
+	color: rgb(0, 0, 0);
+	font: 700 12pt &quot;8514oem&quot;;
+	qproperty-alignment: AlignCenter; 
+}</string>
+      </property>
+      <property name="text">
+       <string>B answer</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="cAnswer">
+      <property name="geometry">
+       <rect>
+        <x>580</x>
+        <y>290</y>
+        <width>131</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel#cAnswer{
+	color: rgb(0, 0, 0);
+	font: 700 12pt &quot;8514oem&quot;;
+	qproperty-alignment: AlignLeft; 
+}</string>
+      </property>
+      <property name="text">
+       <string>C answer</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="correctness">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>360</y>
+        <width>691</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel#correctness{
+	color: rgb(255, 8, 160);
+	font: 900 32pt &quot;Segoe UI Black&quot;;
+qproperty-alignment: AlignCenter; 
+
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="itemCollectedPage">
+     <property name="styleSheet">
+      <string notr="true">QWidget#itemCollectedPage{
+background-color: rgb(255, 160, 239);
+}</string>
+     </property>
+     <widget class="QLabel" name="wonPageHeading">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>0</y>
+        <width>501</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel#wonPageHeading{
+	color: rgb(255, 8, 160);
+	font: 900 48pt &quot;Segoe UI Black&quot;;
+}</string>
+      </property>
+      <property name="text">
+       <string>You Won...</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="itemWon">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>140</y>
+        <width>351</width>
+        <height>101</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel#itemWon{
+	color: rgb(0, 0, 0);
+	
+	font: 500 16pt &quot;Neue Haas Grotesk Text Pro Medi&quot;;
+	qproperty-alignment: AlignCenter; 
+}</string>
+      </property>
+      <property name="text">
+       <string>placeholder</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="giveawayButton">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>290</y>
+        <width>251</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 8, 160);
+border-radius: 15px; border: 5px solid black;
+color: rgb(0, 0, 0);
+font: 500 12pt &quot;Neue Haas Grotesk Text Pro Medi&quot;;
+qproperty-alignment: AlignCenter; </string>
+      </property>
+      <property name="text">
+       <string>Add to Inventory</string>
       </property>
      </widget>
     </widget>
@@ -364,6 +815,64 @@ font: 900 30pt &quot;Gill Sans Nova Ultra Bold&quot;;
     </property>
     <property name="text">
      <string>←</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="PuzzleButton">
+    <property name="geometry">
+     <rect>
+      <x>890</x>
+      <y>570</y>
+      <width>51</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/images/puzzleIcon.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="objectDescription">
+    <property name="geometry">
+     <rect>
+      <x>770</x>
+      <y>510</y>
+      <width>281</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 15px; border: 5px solid white;
+color: rgb(0, 0, 0);
+font: 700 6pt &quot;8514oem&quot;;
+qproperty-alignment: AlignCenter; 
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="characterClue">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>20</y>
+      <width>941</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 15px; border: 5px solid white;
+color: rgb(0, 0, 0);
+font: 700 9pt &quot;8514oem&quot;;
+qproperty-alignment: AlignCenter; 
+</string>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
   </widget>

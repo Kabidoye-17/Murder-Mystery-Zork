@@ -1,0 +1,15 @@
+release/character.o
+release/gameInformation.o
+release/inventory.o
+release/item.o
+release/main.o
+release/mainwindow.o
+release/mathpuzzle.o
+release/object.o
+release/player.o
+release/puzzle.o
+release/riddlepuzzle.o
+release/room.o
+release/roomController.o
+release/qrc_resource.o
+release/moc_mainwindow.o

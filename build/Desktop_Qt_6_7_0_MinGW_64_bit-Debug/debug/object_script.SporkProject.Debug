@@ -1,0 +1,15 @@
+debug/character.o
+debug/gameInformation.o
+debug/inventory.o
+debug/item.o
+debug/main.o
+debug/mainwindow.o
+debug/mathpuzzle.o
+debug/object.o
+debug/player.o
+debug/puzzle.o
+debug/riddlepuzzle.o
+debug/room.o
+debug/roomController.o
+debug/qrc_resource.o
+debug/moc_mainwindow.o
