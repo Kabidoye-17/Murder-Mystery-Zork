@@ -23,6 +23,7 @@ public:
     void displayCharacterDialogue();
     void removeFromInventory(string itemName);
     void addToInventory(string name);
+    void guessHandler(bool b);
 private slots:
 
     void on_playButton_clicked();
@@ -74,6 +75,16 @@ private slots:
     void on_guessTheGhost_clicked();
 
     void on_guessTheDog_clicked();
+
+    void on_guessTheChef_clicked();
+
+    void on_guessTheWife_clicked();
+
+    void on_guessTheGardener_clicked();
+
+    void on_winExit_clicked();
+
+    void on_loserExit_clicked();
 
 private:
     Ui::MainWindow *ui;

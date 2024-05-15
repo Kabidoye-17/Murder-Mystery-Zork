@@ -79,6 +79,16 @@ public:
     QPushButton *guessTheGhost;
     QPushButton *guessTheDog;
     QLabel *guessCounter;
+    QWidget *winningPage;
+    QLabel *winHeading;
+    QLabel *murdererWas_2;
+    QLabel *murdererLabel_2;
+    QPushButton *winExit;
+    QWidget *losingPage;
+    QLabel *lostHeading;
+    QLabel *murdererWas;
+    QLabel *murdererLabel;
+    QPushButton *loserExit;
     QPushButton *upButton;
     QPushButton *downButton;
     QPushButton *rightButton;
@@ -108,6 +118,7 @@ public:
         stackedWidget->setObjectName("stackedWidget");
         stackedWidget->setGeometry(QRect(90, 80, 801, 421));
         stackedWidget->setMaximumSize(QSize(1151, 641));
+        stackedWidget->setStyleSheet(QString::fromUtf8(""));
         titlescreen = new QWidget();
         titlescreen->setObjectName("titlescreen");
         titlescreen->setMaximumSize(QSize(1151, 641));
@@ -464,6 +475,76 @@ public:
 "	color: rgb(0, 0, 0);\n"
 "}"));
         stackedWidget->addWidget(GuessingPage);
+        winningPage = new QWidget();
+        winningPage->setObjectName("winningPage");
+        winningPage->setStyleSheet(QString::fromUtf8("background-color: rgb(251, 107, 162);"));
+        winHeading = new QLabel(winningPage);
+        winHeading->setObjectName("winHeading");
+        winHeading->setGeometry(QRect(190, 110, 491, 101));
+        winHeading->setStyleSheet(QString::fromUtf8("QLabel#winHeading{\n"
+"	font: 900 48pt \"Segoe UI Black\";\n"
+"	color: rgb(255, 255, 255);\n"
+"}\n"
+""));
+        murdererWas_2 = new QLabel(winningPage);
+        murdererWas_2->setObjectName("murdererWas_2");
+        murdererWas_2->setGeometry(QRect(140, 210, 531, 51));
+        murdererWas_2->setStyleSheet(QString::fromUtf8("QLabel#murdererWas_2{\n"
+"	color: rgb(0, 0, 0);\n"
+"	font: 20pt \"MS UI Gothic\";\n"
+"}"));
+        murdererLabel_2 = new QLabel(winningPage);
+        murdererLabel_2->setObjectName("murdererLabel_2");
+        murdererLabel_2->setGeometry(QRect(110, 260, 551, 51));
+        murdererLabel_2->setStyleSheet(QString::fromUtf8("QLabel#murdererLabel_2{\n"
+"	font: 700 23pt \"Malgun Gothic\";\n"
+"	color: rgb(0, 0, 0);\n"
+"	qproperty-alignment: AlignCenter; \n"
+"}"));
+        winExit = new QPushButton(winningPage);
+        winExit->setObjectName("winExit");
+        winExit->setGeometry(QRect(260, 330, 251, 61));
+        winExit->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 8, 160);\n"
+"border-radius: 15px; border: 5px solid black;\n"
+"color: rgb(0, 0, 0);\n"
+"font: 500 12pt \"Neue Haas Grotesk Text Pro Medi\";\n"
+"qproperty-alignment: AlignCenter; "));
+        stackedWidget->addWidget(winningPage);
+        losingPage = new QWidget();
+        losingPage->setObjectName("losingPage");
+        losingPage->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
+        lostHeading = new QLabel(losingPage);
+        lostHeading->setObjectName("lostHeading");
+        lostHeading->setGeometry(QRect(200, 90, 491, 101));
+        lostHeading->setStyleSheet(QString::fromUtf8("QLabel#lostHeading{\n"
+"	font: 900 48pt \"Segoe UI Black\";\n"
+"	color: rgb(248, 8, 156);\n"
+"}\n"
+""));
+        murdererWas = new QLabel(losingPage);
+        murdererWas->setObjectName("murdererWas");
+        murdererWas->setGeometry(QRect(270, 210, 261, 51));
+        murdererWas->setStyleSheet(QString::fromUtf8("QLabel#murdererWas{\n"
+"	color: rgb(0, 0, 0);\n"
+"	font: 20pt \"MS UI Gothic\";\n"
+"}"));
+        murdererLabel = new QLabel(losingPage);
+        murdererLabel->setObjectName("murdererLabel");
+        murdererLabel->setGeometry(QRect(120, 270, 551, 51));
+        murdererLabel->setStyleSheet(QString::fromUtf8("QLabel#murdererLabel{\n"
+"	font: 700 23pt \"Malgun Gothic\";\n"
+"	color: rgb(0, 0, 0);\n"
+"	qproperty-alignment: AlignCenter; \n"
+"}"));
+        loserExit = new QPushButton(losingPage);
+        loserExit->setObjectName("loserExit");
+        loserExit->setGeometry(QRect(270, 340, 251, 61));
+        loserExit->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 8, 160);\n"
+"border-radius: 15px; border: 5px solid black;\n"
+"color: rgb(0, 0, 0);\n"
+"font: 500 12pt \"Neue Haas Grotesk Text Pro Medi\";\n"
+"qproperty-alignment: AlignCenter; "));
+        stackedWidget->addWidget(losingPage);
         upButton = new QPushButton(centralwidget);
         upButton->setObjectName("upButton");
         upButton->setGeometry(QRect(110, 510, 51, 51));
@@ -544,7 +625,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(12);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -596,6 +677,14 @@ public:
         guessTheGhost->setText(QCoreApplication::translate("MainWindow", "The Ghost", nullptr));
         guessTheDog->setText(QCoreApplication::translate("MainWindow", "The Dog", nullptr));
         guessCounter->setText(QCoreApplication::translate("MainWindow", "-1", nullptr));
+        winHeading->setText(QCoreApplication::translate("MainWindow", "You Won!", nullptr));
+        murdererWas_2->setText(QCoreApplication::translate("MainWindow", "You correctly guessed the murderer:", nullptr));
+        murdererLabel_2->setText(QCoreApplication::translate("MainWindow", "the friends we made all along", nullptr));
+        winExit->setText(QCoreApplication::translate("MainWindow", "Exit", nullptr));
+        lostHeading->setText(QCoreApplication::translate("MainWindow", "You Lost!", nullptr));
+        murdererWas->setText(QCoreApplication::translate("MainWindow", "The Murderer was: ", nullptr));
+        murdererLabel->setText(QCoreApplication::translate("MainWindow", "the friends we made all along", nullptr));
+        loserExit->setText(QCoreApplication::translate("MainWindow", "Exit", nullptr));
         upButton->setText(QCoreApplication::translate("MainWindow", "\342\206\221", nullptr));
         downButton->setText(QCoreApplication::translate("MainWindow", "\342\206\223", nullptr));
         rightButton->setText(QCoreApplication::translate("MainWindow", "\342\206\222", nullptr));

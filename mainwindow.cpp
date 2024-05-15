@@ -330,19 +330,69 @@ void MainWindow::on_phone_released()
 
 void MainWindow::on_guessTheGhost_clicked()
 {
-    cout << "it got here" << endl;
     bool innocence = rc->getGuessPhone()->getInnocenceStatus("Ella's ghost");
-    cout << "innocennce gotten"<< endl;
-    cout << innocence << endl;
-    if (innocence){
-        decreaseGuesses();
-        ui->guessCounter->setText(QString::fromStdString(to_string(checkGuessesLeft())));
-    }
+    guessHandler(innocence);
 }
+
 
 
 void MainWindow::on_guessTheDog_clicked()
 {
 
+    bool innocence = rc->getGuessPhone()->getInnocenceStatus("the dog");
+    guessHandler(innocence);
 }
+
+
+void MainWindow::on_guessTheChef_clicked()
+{
+
+    bool innocence = rc->getGuessPhone()->getInnocenceStatus("the chef");
+    guessHandler(innocence);
+}
+
+
+void MainWindow::on_guessTheWife_clicked()
+{
+
+    bool innocence = rc->getGuessPhone()->getInnocenceStatus("the wife");
+    guessHandler(innocence);
+}
+
+
+void MainWindow::on_guessTheGardener_clicked()
+{
+
+    bool innocence = rc->getGuessPhone()->getInnocenceStatus("the gardener");
+    guessHandler(innocence);
+}
+
+void MainWindow::guessHandler(bool b){
+    if (b){
+        decreaseGuesses();
+        int temp = checkGuessesLeft();
+        if (temp <= 0){
+            ui->murdererLabel->setText(QString::fromStdString(rc->getGuessPhone()->getMurderer()));
+            ui->stackedWidget->setCurrentIndex(12);
+        }else {
+            ui->guessCounter->setText(QString::fromStdString(to_string(checkGuessesLeft())));
+        }
+    }else{
+        ui->murdererLabel_2->setText(QString::fromStdString(rc->getGuessPhone()->getMurderer()));
+        ui->stackedWidget->setCurrentIndex(11);
+    }
+
+}
+
+void MainWindow::on_winExit_clicked()
+{
+    QApplication::quit();
+}
+
+
+void MainWindow::on_loserExit_clicked()
+{
+    QApplication::quit();
+}
+
 

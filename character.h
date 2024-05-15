@@ -12,7 +12,7 @@ private:
     string want;
     bool innocence;
 public:
-    Character(string name = "", string clue = "", bool innocence = 0, string want = "");
+    Character(string name = "", string clue = "", bool innocence = 1, string want = "");
     string getDialogue();
     string getWant();
     bool getInnocence();

@@ -12,6 +12,7 @@ public:
     phone(Character c1, Character c2, Character c3, Character c4, Character c5);
     bool getInnocenceStatus(string charName);
     Character getCharacter(string charName );
+    string getMurderer();
     string displayObjectDescription() override;
 };
 

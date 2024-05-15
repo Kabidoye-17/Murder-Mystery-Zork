@@ -7,7 +7,7 @@ phone::phone(Character c1, Character c2, Character c3, Character c4, Character c
     contacts[2] = c3;
     contacts[3] = c4;
     contacts[4] = c5;
-    this->interact = 0;
+    this->interact = 1;
 }
 bool phone::getInnocenceStatus(string charName){
     Character c = getCharacter(charName);
@@ -23,6 +23,16 @@ Character phone::getCharacter(string charName ){
     Character def;
     return def;
 }
-string  phone::displayObjectDescription(){
+
+string phone::getMurderer(){
+    for (int i = 0; i < 5; i++){
+        if (contacts[i].getInnocence() == 0){
+            return contacts[i].getName();
+        }
+    }
+    return "couldn't find it lol";
+}
+
+string phone::displayObjectDescription(){
     return "Guess the murderer here";
 }
