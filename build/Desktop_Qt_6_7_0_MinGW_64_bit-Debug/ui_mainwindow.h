@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStackedWidget>
@@ -67,7 +68,8 @@ public:
     QWidget *itemCollectedPage;
     QLabel *wonPageHeading;
     QLabel *itemWon;
-    QPushButton *giveawayButton;
+    QPushButton *addToInventory;
+    QWidget *page;
     QPushButton *upButton;
     QPushButton *downButton;
     QPushButton *rightButton;
@@ -75,6 +77,9 @@ public:
     QPushButton *PuzzleButton;
     QLabel *objectDescription;
     QLabel *characterClue;
+    QListWidget *inventoryList;
+    QLabel *label;
+    QPushButton *giveItem;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -92,7 +97,7 @@ public:
 "}"));
         stackedWidget = new QStackedWidget(centralwidget);
         stackedWidget->setObjectName("stackedWidget");
-        stackedWidget->setGeometry(QRect(90, 80, 741, 421));
+        stackedWidget->setGeometry(QRect(90, 80, 811, 421));
         stackedWidget->setMaximumSize(QSize(1151, 641));
         titlescreen = new QWidget();
         titlescreen->setObjectName("titlescreen");
@@ -100,7 +105,7 @@ public:
         titlescreen->setAutoFillBackground(false);
         bgImage = new QLabel(titlescreen);
         bgImage->setObjectName("bgImage");
-        bgImage->setGeometry(QRect(0, 0, 741, 421));
+        bgImage->setGeometry(QRect(0, 0, 801, 421));
         bgImage->setStyleSheet(QString::fromUtf8("QLabel#bgImage{\n"
 "border-image: url(:/images/main.png); \n"
 "border: none;             \n"
@@ -122,7 +127,7 @@ public:
         howToPlay->setAutoFillBackground(false);
         roombg = new QLabel(howToPlay);
         roombg->setObjectName("roombg");
-        roombg->setGeometry(QRect(0, 0, 741, 421));
+        roombg->setGeometry(QRect(0, 0, 801, 421));
         roombg->setStyleSheet(QString::fromUtf8("QLabel#roombg{\n"
 "border-image: url(:/images/howToPlay.png);\n"
 "border: none;             \n"
@@ -132,7 +137,7 @@ public:
 ""));
         readyButton = new QPushButton(howToPlay);
         readyButton->setObjectName("readyButton");
-        readyButton->setGeometry(QRect(280, 340, 171, 51));
+        readyButton->setGeometry(QRect(310, 340, 171, 51));
         readyButton->setStyleSheet(QString::fromUtf8("QPushButton#readyButton{\n"
 "	background-color: rgb(255, 140, 253);\n"
 "	color: rgb(0, 0, 0);\n"
@@ -143,7 +148,7 @@ public:
         mainHall->setObjectName("mainHall");
         mainHallbg = new QLabel(mainHall);
         mainHallbg->setObjectName("mainHallbg");
-        mainHallbg->setGeometry(QRect(0, 0, 741, 421));
+        mainHallbg->setGeometry(QRect(0, 0, 801, 421));
         mainHallbg->setStyleSheet(QString::fromUtf8("border-image: url(:/images/mainHall.png);"));
         phone = new QPushButton(mainHall);
         phone->setObjectName("phone");
@@ -157,7 +162,7 @@ public:
         sittingRoom->setObjectName("sittingRoom");
         sittingRoombg = new QLabel(sittingRoom);
         sittingRoombg->setObjectName("sittingRoombg");
-        sittingRoombg->setGeometry(QRect(0, 0, 741, 421));
+        sittingRoombg->setGeometry(QRect(0, 0, 801, 421));
         sittingRoombg->setStyleSheet(QString::fromUtf8("border-image: url(:/images/sittingRoom.png);"));
         dogCharLabel = new QLabel(sittingRoom);
         dogCharLabel->setObjectName("dogCharLabel");
@@ -175,7 +180,7 @@ public:
         bedroom->setObjectName("bedroom");
         bedroombg = new QLabel(bedroom);
         bedroombg->setObjectName("bedroombg");
-        bedroombg->setGeometry(QRect(0, 0, 741, 421));
+        bedroombg->setGeometry(QRect(0, 0, 801, 421));
         bedroombg->setStyleSheet(QString::fromUtf8("QLabel#bedroombg{\n"
 "	border-image: url(:/images/bedroom.png);\n"
 "}"));
@@ -197,7 +202,7 @@ public:
         Attic->setObjectName("Attic");
         Atticbg = new QLabel(Attic);
         Atticbg->setObjectName("Atticbg");
-        Atticbg->setGeometry(QRect(0, 0, 741, 421));
+        Atticbg->setGeometry(QRect(0, 0, 801, 421));
         Atticbg->setStyleSheet(QString::fromUtf8("border-image: url(:/images/attic.png);"));
         ghostCharLabel = new QLabel(Attic);
         ghostCharLabel->setObjectName("ghostCharLabel");
@@ -217,7 +222,7 @@ public:
         Kitchen->setObjectName("Kitchen");
         kitchenbg = new QLabel(Kitchen);
         kitchenbg->setObjectName("kitchenbg");
-        kitchenbg->setGeometry(QRect(0, 0, 741, 421));
+        kitchenbg->setGeometry(QRect(0, 0, 801, 421));
         kitchenbg->setStyleSheet(QString::fromUtf8("border-image: url(:/images/kitchen.png);"));
         chefCharLabel = new QLabel(Kitchen);
         chefCharLabel->setObjectName("chefCharLabel");
@@ -235,7 +240,7 @@ public:
         Garden->setObjectName("Garden");
         gardenbg = new QLabel(Garden);
         gardenbg->setObjectName("gardenbg");
-        gardenbg->setGeometry(QRect(0, 0, 741, 421));
+        gardenbg->setGeometry(QRect(0, 0, 801, 421));
         gardenbg->setStyleSheet(QString::fromUtf8("border-image: url(:/images/garden.png);"));
         gardenerCharLabel = new QLabel(Garden);
         gardenerCharLabel->setObjectName("gardenerCharLabel");
@@ -353,15 +358,18 @@ public:
 "	font: 500 16pt \"Neue Haas Grotesk Text Pro Medi\";\n"
 "	qproperty-alignment: AlignCenter; \n"
 "}"));
-        giveawayButton = new QPushButton(itemCollectedPage);
-        giveawayButton->setObjectName("giveawayButton");
-        giveawayButton->setGeometry(QRect(240, 290, 251, 61));
-        giveawayButton->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 8, 160);\n"
+        addToInventory = new QPushButton(itemCollectedPage);
+        addToInventory->setObjectName("addToInventory");
+        addToInventory->setGeometry(QRect(240, 290, 251, 61));
+        addToInventory->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 8, 160);\n"
 "border-radius: 15px; border: 5px solid black;\n"
 "color: rgb(0, 0, 0);\n"
 "font: 500 12pt \"Neue Haas Grotesk Text Pro Medi\";\n"
 "qproperty-alignment: AlignCenter; "));
         stackedWidget->addWidget(itemCollectedPage);
+        page = new QWidget();
+        page->setObjectName("page");
+        stackedWidget->addWidget(page);
         upButton = new QPushButton(centralwidget);
         upButton->setObjectName("upButton");
         upButton->setGeometry(QRect(110, 510, 51, 51));
@@ -400,7 +408,7 @@ public:
 "}"));
         PuzzleButton = new QPushButton(centralwidget);
         PuzzleButton->setObjectName("PuzzleButton");
-        PuzzleButton->setGeometry(QRect(890, 570, 51, 61));
+        PuzzleButton->setGeometry(QRect(910, 580, 51, 61));
         PuzzleButton->setStyleSheet(QString::fromUtf8("border-image: url(:/images/puzzleIcon.png);"));
         objectDescription = new QLabel(centralwidget);
         objectDescription->setObjectName("objectDescription");
@@ -420,11 +428,29 @@ public:
 "font: 700 9pt \"8514oem\";\n"
 "qproperty-alignment: AlignCenter; \n"
 ""));
+        inventoryList = new QListWidget(centralwidget);
+        inventoryList->setObjectName("inventoryList");
+        inventoryList->setGeometry(QRect(890, 150, 161, 341));
+        inventoryList->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
+        label = new QLabel(centralwidget);
+        label->setObjectName("label");
+        label->setGeometry(QRect(890, 80, 161, 71));
+        label->setStyleSheet(QString::fromUtf8("background-color: rgb(251, 107, 162);\n"
+"font: 600 18pt \"Verdana Pro Semibold\";\n"
+"color: rgb(255, 255, 255);"));
+        giveItem = new QPushButton(centralwidget);
+        giveItem->setObjectName("giveItem");
+        giveItem->setGeometry(QRect(500, 570, 251, 61));
+        giveItem->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 8, 160);\n"
+"border-radius: 15px; border: 5px solid black;\n"
+"color: rgb(0, 0, 0);\n"
+"font: 500 12pt \"Neue Haas Grotesk Text Pro Medi\";\n"
+"qproperty-alignment: AlignCenter; "));
         MainWindow->setCentralWidget(centralwidget);
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(10);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -466,7 +492,7 @@ public:
         correctness->setText(QString());
         wonPageHeading->setText(QCoreApplication::translate("MainWindow", "You Won...", nullptr));
         itemWon->setText(QCoreApplication::translate("MainWindow", "placeholder", nullptr));
-        giveawayButton->setText(QCoreApplication::translate("MainWindow", "Add to Inventory", nullptr));
+        addToInventory->setText(QCoreApplication::translate("MainWindow", "Add to Inventory", nullptr));
         upButton->setText(QCoreApplication::translate("MainWindow", "\342\206\221", nullptr));
         downButton->setText(QCoreApplication::translate("MainWindow", "\342\206\223", nullptr));
         rightButton->setText(QCoreApplication::translate("MainWindow", "\342\206\222", nullptr));
@@ -474,6 +500,8 @@ public:
         PuzzleButton->setText(QString());
         objectDescription->setText(QString());
         characterClue->setText(QString());
+        label->setText(QCoreApplication::translate("MainWindow", "Inventory", nullptr));
+        giveItem->setText(QCoreApplication::translate("MainWindow", "Give Item", nullptr));
     } // retranslateUi
 
 };

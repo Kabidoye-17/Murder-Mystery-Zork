@@ -8,26 +8,33 @@
 #include "object.h"
 #include "character.h"
 #include "item.h"
+#include "mathpuzzle.h"
 using namespace std;
+
+struct roomBitStructure{
+    int pageNumber = 16;
+};
+
 class room {
     private:
-        int pageNumber;
         map<string, room*> exits;
         Character* roomCharacter;
-        puzzle* roomPuzzle;
+        MathPuzzle* roomPuzzle;
         Item roomItem;
     public:
         void setExits(room *north, room *south, room *east, room *west);
         void setPageNumber(int pn);
-        int getPageNumber() const;
+        int getPageNumber();
         void setRoomItem(Item i);
         Item getRoomItem();
         map<string, room*> getExits();
-        void setPuzzle(puzzle* obj);
-        puzzle* getPuzzle();
+        void setPuzzle(MathPuzzle* obj);
+        MathPuzzle* getPuzzle();
         void setCharacter(Character* c);
         Character* getCharacter();
-        room();
+        room(int pn);
+    protected:
+        roomBitStructure rbs;
 };
 
 #endif // ROOM_H

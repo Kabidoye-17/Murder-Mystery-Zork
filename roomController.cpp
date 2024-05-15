@@ -21,12 +21,12 @@ void roomController::createRooms(){
 
     // instantiating the rooms
     room *mainHall, *kitchen, *garden, *bedroom, *sittingRoom, *attic;
-    mainHall = new room();
-    kitchen = new room();
-    garden = new room();
-    bedroom = new room();
-    sittingRoom = new room();
-    attic = new room();
+    mainHall = new room(2);
+    kitchen = new room(6);
+    garden = new room(7);
+    bedroom = new room(4);
+    sittingRoom = new room(3);
+    attic = new room(5);
 
     //setting the exits
     mainHall->setExits(attic, NULL, garden, sittingRoom);
@@ -36,28 +36,22 @@ void roomController::createRooms(){
     sittingRoom->setExits(bedroom, NULL, mainHall, NULL);
     attic->setExits(NULL, mainHall, kitchen, bedroom);
 
-    // storing the stacked widget page number
-    mainHall->setPageNumber(2);
-    kitchen->setPageNumber(6);
-    garden->setPageNumber(7);
-    bedroom->setPageNumber(4);
-    sittingRoom->setPageNumber(3);
-    attic->setPageNumber(5);
 
     // creating the room puzzles and adding them to the rooms
+    // on the heap cause it'll go out of scope and become null (learnt the hard way)
     MathPuzzle* atticPuzzle = new MathPuzzle("what is my name", "Kelly", "Jenna", "Kelly", "Portia");
     attic->setPuzzle(atticPuzzle);
     MathPuzzle* bedroomPuzzle = new MathPuzzle("Beep?", "Boop", "Boop", "Buup", "Biip");
     bedroom->setPuzzle(bedroomPuzzle);
     MathPuzzle* kitchenPuzzle = new MathPuzzle("placeholder?", "yeah", "yes", "no", "yeah");
     kitchen->setPuzzle(kitchenPuzzle);
-    RiddlePuzzle* sittingRoomPuzzle = new RiddlePuzzle("RIDDLE ME THIS", "an", "an", "bn", "cn");
+    MathPuzzle* sittingRoomPuzzle = new MathPuzzle("RIDDLE ME THIS", "an", "an", "bn", "cn");
     sittingRoom->setPuzzle(sittingRoomPuzzle);
-    RiddlePuzzle* gardenPuzzle =  new RiddlePuzzle("RIDDLE ME THIS", "an", "an", "bn", "cn");
+    MathPuzzle* gardenPuzzle = new MathPuzzle("RIDDLE ME THIS", "an", "an", "bn", "cn");
     garden->setPuzzle(gardenPuzzle);
 
     // creating the room Characters and adding them to the rooms
-    Character* theWife = new Character("the wife", "wife clue", true, "lipstick");
+    Character* theWife = new Character("the wife", "wife clue", true, "lighter");
     bedroom->setCharacter(theWife);
     Character* theDog = new Character("the dog", "dog clue", false, "bone");
     sittingRoom->setCharacter(theDog);
@@ -65,23 +59,28 @@ void roomController::createRooms(){
     garden->setCharacter(theGardener);
     Character* theChef = new Character("the chef", "chef clue", true, "cheese");
     kitchen->setCharacter(theChef);
-    Character* ellasGhost = new Character("Ella's ghost", "ella's ghost clue", true, "potion");
+    Character* ellasGhost = new Character("Ella's ghost", "ella's ghost clue", true, "soul");
     attic->setCharacter(ellasGhost);
 
     // create room items and add them to the room
-    Item lipstick("lipstick");
-    bedroom->setRoomItem(lipstick);
+    Item lighter("lighter");
+    bedroom->setRoomItem(lighter);
+
     Item bone("bone");
     sittingRoom->setRoomItem(bone);
+
     Item cheese("cheese");
     kitchen->setRoomItem(cheese);
+
     Item shovel("shovel");
     garden->setRoomItem(shovel);
-    Item potion("potion");
-    attic->setRoomItem(potion);
+
+    Item soul("soul");
+    attic->setRoomItem(soul);
 
 
-    currentRoom = mainHall;
+
+    setCurrentRoom(mainHall);
 }
 
 int roomController::switchRoom(string *direction){
@@ -102,7 +101,10 @@ void roomController::addToCharacterInventory(Item i){
     (this->currentPlayer->getInventory())+= i;
 
 }
-
 void roomController::removeFromCharacterInventory(Item i){
     (this->currentPlayer->getInventory()) -= i;
+}
+
+player* roomController::getPlayer(){
+    return this->currentPlayer;
 }

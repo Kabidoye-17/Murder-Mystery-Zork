@@ -373,6 +373,7 @@ release/moc_mainwindow.cpp: ../../mainwindow.h \
 		../../mathpuzzle.h \
 		../../riddlepuzzle.h \
 		../../player.h \
+		../../inventory.h \
 		../../gameInformation.h \
 		release/moc_predefs.h \
 		../../../../qt/6.7.0/mingw_64/bin/moc.exe
@@ -613,6 +614,7 @@ release/main.o: ../../main.cpp ../../mainwindow.h \
 		../../mathpuzzle.h \
 		../../riddlepuzzle.h \
 		../../player.h \
+		../../inventory.h \
 		../../gameInformation.h \
 		../../../../../../qt/6.7.0/mingw_64/include/QtWidgets/QApplication \
 		../../../../../../qt/6.7.0/mingw_64/include/QtWidgets/qapplication.h
@@ -816,6 +818,7 @@ release/mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		../../mathpuzzle.h \
 		../../riddlepuzzle.h \
 		../../player.h \
+		../../inventory.h \
 		../../gameInformation.h \
 		ui_mainwindow.h \
 		../../../../../../qt/6.7.0/mingw_64/include/QtCore/QVariant \
@@ -846,9 +849,10 @@ release/object.o: ../../object.cpp ../../object.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\object.o ..\..\object.cpp
 
 release/player.o: ../../player.cpp ../../player.h \
+		../../inventory.h \
+		../../item.h \
 		../../character.h \
-		../../object.h \
-		../../item.h
+		../../object.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\player.o ..\..\player.cpp
 
 release/puzzle.o: ../../puzzle.cpp ../../puzzle.h
@@ -875,6 +879,7 @@ release/roomController.o: ../../roomController.cpp ../../roomController.h \
 		../../mathpuzzle.h \
 		../../riddlepuzzle.h \
 		../../player.h \
+		../../inventory.h \
 		../../gameInformation.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\roomController.o ..\..\roomController.cpp
 

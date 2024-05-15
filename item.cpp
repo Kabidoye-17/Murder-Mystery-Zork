@@ -1,9 +1,10 @@
 #include "item.h"
+#include <iostream>
 
-Item::Item(string n) : name (n){
-}
-string Item::getName(){
-    return this->name;
+Item::Item(std::string n) : name(n) {}
+
+string Item::getName() {
+    return name;
 }
 
 bool Item::operator==(Item other) {
@@ -12,3 +13,7 @@ bool Item::operator==(Item other) {
 Item::~Item(){
 
 }
+
+
+
+

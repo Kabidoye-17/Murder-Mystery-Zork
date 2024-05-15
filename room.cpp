@@ -1,8 +1,9 @@
 #include "room.h"
 
-room::room(){
-
+room::room(int pn){
+    this->rbs.pageNumber = pn;
 }
+
 void room::setExits(room *north, room *south, room *east, room *west){
     this->exits["North"] = north;
     this->exits["South"] = south;
@@ -10,23 +11,19 @@ void room::setExits(room *north, room *south, room *east, room *west){
     this->exits["West"] = west;
 }
 
-void room::setPageNumber(int pn){
-    this->pageNumber = pn;
-}
-
-int room::getPageNumber() const{
-    return this->pageNumber;
+int room::getPageNumber(){
+    return this->rbs.pageNumber;
 }
 
 map<string, room *> room::getExits(){
     return this->exits;
 }
 
-void room::setPuzzle(puzzle* obj){
+void room::setPuzzle(MathPuzzle* obj){
     this->roomPuzzle = obj;
 }
 
-puzzle* room::getPuzzle() {
+MathPuzzle* room::getPuzzle() {
     return this->roomPuzzle;
 }
 
@@ -41,6 +38,7 @@ void room::setCharacter(Character *c){
 void room::setRoomItem(Item i){
     this->roomItem = i;
 }
+
 Item room::getRoomItem(){
     return this->roomItem;
 }

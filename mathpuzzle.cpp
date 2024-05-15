@@ -6,7 +6,7 @@ MathPuzzle::MathPuzzle(string q, string ca, string a, string b, string c){
     this->answers[0] = a;
     this->answers[1] = b;
     this->answers[2] = c;
-    this->interact = true;
+    this->interact = 1;
 }
 string MathPuzzle::displayGameOverview() {
     return "Solve this math question to unlock a clue";

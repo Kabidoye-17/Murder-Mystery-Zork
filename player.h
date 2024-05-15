@@ -8,13 +8,12 @@ using namespace std;
 class player
 {
 private:
-    Inventory playerInventory;
+    Inventory<Item> playerInventory;
 
 public:
     player();
-    Item getItem(Item i);
-    Item* getInventoryList();
-    Inventory getInventory();
+    Item* getItem(string n);
+    Inventory<Item> getInventory();
     ~player();
 };
 

@@ -3,7 +3,6 @@
 
 #include <string>
 using namespace std;
-
 class object{
 protected:
     bool interact;

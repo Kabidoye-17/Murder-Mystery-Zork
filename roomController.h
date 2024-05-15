@@ -7,6 +7,7 @@
 #include "character.h"
 #include "player.h"
 #include "gameInformation.h"
+#include "inventory.h"
 
 using namespace std;
 using namespace gameInformation;
@@ -19,7 +20,7 @@ private:
 public:
     roomController();
     room* getCurrentRoom();
-    player getPlayer();
+    player* getPlayer();
     void setCurrentRoom(room *r);
     int switchRoom(string *direction);
     void createRooms();

@@ -16,6 +16,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->PuzzleButton->hide();
     ui->objectDescription->hide();
     ui->characterClue->hide();
+    ui->giveItem->hide();
 }
 
 MainWindow::~MainWindow()
@@ -36,6 +37,7 @@ void MainWindow::on_readyButton_clicked()
     ui->leftButton->show();
     ui->rightButton->show();
     ui->PuzzleButton->show();
+    ui->giveItem->show();
 }
 
 void MainWindow::on_upButton_clicked()
@@ -43,6 +45,8 @@ void MainWindow::on_upButton_clicked()
     string direction = "North";
     int nextPage = rc->switchRoom(&direction);
     ui->stackedWidget->setCurrentIndex(nextPage);
+
+
 }
 
 
@@ -51,14 +55,20 @@ void MainWindow::on_downButton_clicked()
     string direction = "South";
     int nextPage = rc->switchRoom(&direction);
     ui->stackedWidget->setCurrentIndex(nextPage);
+
+
 }
 
 
 void MainWindow::on_rightButton_clicked()
 {
+
     string direction = "East";
     int nextPage = rc->switchRoom(&direction);
     ui->stackedWidget->setCurrentIndex(nextPage);
+
+
+
 }
 
 
@@ -67,30 +77,10 @@ void MainWindow::on_leftButton_clicked()
     string direction = "West";
     int nextPage = rc->switchRoom(&direction);
     ui->stackedWidget->setCurrentIndex(nextPage);
-}
-
-
-
-void MainWindow::on_PuzzleButton_clicked()
-{
-    room* r = rc->getCurrentRoom();
-    if (r->getPageNumber() != 2){
-        puzzle* p = r->getPuzzle();
-        object* pAsObject = dynamic_cast<object*>(p);
-        if (pAsObject->getInteract() == 1){
-
-            ui->question->setText(QString::fromStdString(p->getQuestion()));
-            ui->aAnswer->setText(QString::fromStdString(p->getAnswers()[0]));
-            ui->bAnswer->setText(QString::fromStdString(p->getAnswers()[1]));
-            ui->cAnswer->setText(QString::fromStdString(p->getAnswers()[2]));
-            ui->gameOverview->setText(QString::fromStdString(p->displayGameOverview()));
-            ui->correctness->hide();
-            ui->stackedWidget->setCurrentIndex(8);
-
-        }
-    }
 
 }
+
+
 
 
 void MainWindow::on_aButton_clicked()
@@ -113,10 +103,9 @@ void MainWindow::on_cButton_clicked()
 }
 void MainWindow::correctnessCheck(string uc){
     room* r = rc->getCurrentRoom();
-    puzzle* p = r->getPuzzle();
+    MathPuzzle* p = r->getPuzzle();
     Character* c = r->getCharacter();
     string correctAnswer = p->getCorrectAnswer();
-    object* pAsObject = dynamic_cast<object*>(p);
 
     if (uc == correctAnswer){
         ui->correctness->setText(QString::fromStdString("Correct"));
@@ -124,9 +113,8 @@ void MainWindow::correctnessCheck(string uc){
         ui->correctness->show();
         ui->stackedWidget->setCurrentIndex(9);
         ui->itemWon->setText(QString::fromStdString("The " + r->getRoomItem().getName()));
-        ui->giveawayButton->setText(QString::fromStdString("Give to " + c->getName()));
         rc->addToCharacterInventory(r->getRoomItem());
-        pAsObject->setInteract(false);
+        p->setInteract(false);
 
     } else {
         ui->correctness->setText(QString::fromStdString("Incorrect"));
@@ -145,24 +133,7 @@ void MainWindow::correctnessCheck(string uc){
 
 
 
-void MainWindow::on_PuzzleButton_pressed()
-{
 
-    room* r = rc->getCurrentRoom();
-    if (r->getPageNumber() != 2){
-        puzzle* p = r->getPuzzle();
-    object* pAsObject = dynamic_cast<object*>(p);
-    string od = pAsObject->displayObjectDescription();
-    ui->objectDescription->setText(QString::fromStdString(od));
-    ui->objectDescription->show();
-    }
-}
-
-
-void MainWindow::on_PuzzleButton_released()
-{
-    ui->objectDescription->hide();
-}
 
 
 void MainWindow::on_theWife_clicked()
@@ -211,13 +182,112 @@ void MainWindow::on_theGardener_clicked()
 }
 
 
-void MainWindow::on_giveawayButton_clicked()
+
+void MainWindow::addToInventory(string name){
+    ui->inventoryList->addItem(QString::fromStdString(name));
+
+}
+
+void MainWindow::removeFromInventory(string itemName){
+    QList<QListWidgetItem *> items = ui->inventoryList->findItems(QString::fromStdString(itemName), Qt::MatchExactly);
+    if (!items.isEmpty()) {
+        QListWidgetItem *item = items.first(); // Get the first item from the list of found items
+        ui->inventoryList->removeItemWidget(item);// Remove the item from the list
+        delete item; // If you allocated QListWidgetItem dynamically, you should delete it after taking it from the list
+    }
+}
+
+void MainWindow::on_addToInventory_clicked()
+{
+ room* r = rc->getCurrentRoom();
+addToInventory(r->getRoomItem().getName());
+ ui->stackedWidget->setCurrentIndex(r->getPageNumber());
+}
+
+
+void MainWindow::on_giveItem_clicked()
 {
     room* r = rc->getCurrentRoom();
+    player* pl = rc->getPlayer();
+    MathPuzzle* p = r->getPuzzle();
     Character* c = r->getCharacter();
-    rc->removeFromCharacterInventory(r->getRoomItem());
-    c->setInteract(true);
-    ui->stackedWidget->setCurrentIndex(r->getPageNumber());
+    cout<< 2<< endl;
+    // if we are not in the main wall
+    if (r->getPageNumber() != 2) {
+        cout << 3 << endl;
+        // puzzle isnt interactable
+        if (p->getInteract() == 0) {
+            cout << 4 << endl;
+            // if the item is in player inventory
+            Item* neededItemPtr = pl->getItem(r->getRoomItem().getName());
+            if (neededItemPtr) {
+                Item& neededItem = *neededItemPtr;
+                // Print the item's name
+                cout << "Item Name: " << neededItem.getName() << endl;
+            } else {
+                // Handle the case where neededItemPtr is null
+                cout << "Item is null" << endl;
+            }
+            Item& neededItem = *neededItemPtr;
+            cout<< "print 1" << endl;
+            cout<< r->getRoomItem().getName() << endl;
+            cout<< "print 2" << endl;
+            cout << neededItem.getName()<< endl;
+            if (!neededItem.getName().compare("")) {
+                    cout << 6 << endl;
+                removeFromInventory(r->getRoomItem().getName());
+                    cout << 7 << endl;
+                rc->removeFromCharacterInventory(neededItem); // Pass the object, not the pointer
+                    cout << 8 << endl;
+                    c->setInteract(1);
+                }
+            }
+        }
+
+
+}
+
+void MainWindow::on_PuzzleButton_pressed()
+{
+
+    room* r = rc->getCurrentRoom();
+    if (r->getPageNumber() != 2){
+        MathPuzzle* p= r->getPuzzle();
+        string od = p->displayObjectDescription();
+        ui->objectDescription->setText(QString::fromStdString(od));
+        ui->objectDescription->show();
+    }
+}
+
+
+void MainWindow::on_PuzzleButton_released()
+{
+    ui->objectDescription->hide();
+}
+
+
+void MainWindow::on_PuzzleButton_clicked()
+{
+    cout << "puzzle button accessed " << endl;
+    room* r = rc->getCurrentRoom();
+    cout << "room gotten" << endl;
+    if (r->getPageNumber() != 2){
+        cout << "not in the hall" << endl;
+        bool status = r->getPuzzle()->getInteract();
+        MathPuzzle* p = r->getPuzzle();
+        cout << "puzzle accquired" << endl;
+        if (status == 1){
+            cout << "you can interact!"<< endl;
+            ui->question->setText(QString::fromStdString(p->getQuestion()));
+            ui->aAnswer->setText(QString::fromStdString(p->getAnswers()[0]));
+            ui->bAnswer->setText(QString::fromStdString(p->getAnswers()[1]));
+            ui->cAnswer->setText(QString::fromStdString(p->getAnswers()[2]));
+            ui->gameOverview->setText(QString::fromStdString(p->displayGameOverview()));
+            ui->correctness->hide();
+            ui->stackedWidget->setCurrentIndex(8);
+
+        }
+    }
 
 }
 
