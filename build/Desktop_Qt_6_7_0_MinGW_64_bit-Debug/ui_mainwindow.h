@@ -34,6 +34,7 @@ public:
     QWidget *mainHall;
     QLabel *mainHallbg;
     QPushButton *phone;
+    QLabel *phoneDescription;
     QWidget *sittingRoom;
     QLabel *sittingRoombg;
     QLabel *dogCharLabel;
@@ -69,7 +70,15 @@ public:
     QLabel *wonPageHeading;
     QLabel *itemWon;
     QPushButton *addToInventory;
-    QWidget *page;
+    QWidget *GuessingPage;
+    QLabel *guessingHeading;
+    QLabel *guessCounterLabel;
+    QPushButton *guessTheWife;
+    QPushButton *guessTheChef;
+    QPushButton *guessTheGardener;
+    QPushButton *guessTheGhost;
+    QPushButton *guessTheDog;
+    QLabel *guessCounter;
     QPushButton *upButton;
     QPushButton *downButton;
     QPushButton *rightButton;
@@ -97,7 +106,7 @@ public:
 "}"));
         stackedWidget = new QStackedWidget(centralwidget);
         stackedWidget->setObjectName("stackedWidget");
-        stackedWidget->setGeometry(QRect(90, 80, 811, 421));
+        stackedWidget->setGeometry(QRect(90, 80, 801, 421));
         stackedWidget->setMaximumSize(QSize(1151, 641));
         titlescreen = new QWidget();
         titlescreen->setObjectName("titlescreen");
@@ -114,7 +123,7 @@ public:
 "}"));
         playButton = new QPushButton(titlescreen);
         playButton->setObjectName("playButton");
-        playButton->setGeometry(QRect(280, 250, 171, 41));
+        playButton->setGeometry(QRect(310, 250, 171, 41));
         playButton->setStyleSheet(QString::fromUtf8("QPushButton#playButton{\n"
 "	background-color: rgb(255, 140, 253);\n"
 "	color: rgb(0, 0, 0);\n"
@@ -152,11 +161,20 @@ public:
         mainHallbg->setStyleSheet(QString::fromUtf8("border-image: url(:/images/mainHall.png);"));
         phone = new QPushButton(mainHall);
         phone->setObjectName("phone");
-        phone->setGeometry(QRect(310, 140, 131, 81));
+        phone->setGeometry(QRect(350, 150, 131, 81));
         phone->setStyleSheet(QString::fromUtf8("QPushButton#phone{\n"
 "	border-image: url(:/images/GuessingPhone.png);\n"
 "\n"
 "}"));
+        phoneDescription = new QLabel(mainHall);
+        phoneDescription->setObjectName("phoneDescription");
+        phoneDescription->setGeometry(QRect(260, 90, 281, 41));
+        phoneDescription->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
+"border-radius: 15px; border: 3px solid black;\n"
+"color: rgb(0, 0, 0);\n"
+"font: 700 6pt \"8514oem\";\n"
+"qproperty-alignment: AlignCenter; \n"
+""));
         stackedWidget->addWidget(mainHall);
         sittingRoom = new QWidget();
         sittingRoom->setObjectName("sittingRoom");
@@ -367,9 +385,85 @@ public:
 "font: 500 12pt \"Neue Haas Grotesk Text Pro Medi\";\n"
 "qproperty-alignment: AlignCenter; "));
         stackedWidget->addWidget(itemCollectedPage);
-        page = new QWidget();
-        page->setObjectName("page");
-        stackedWidget->addWidget(page);
+        GuessingPage = new QWidget();
+        GuessingPage->setObjectName("GuessingPage");
+        GuessingPage->setStyleSheet(QString::fromUtf8("QWidget#GuessingPage{\n"
+"	background-color: rgb(255, 255, 255);\n"
+"	border: 5px solid rgb(236, 91, 200);\n"
+"}"));
+        guessingHeading = new QLabel(GuessingPage);
+        guessingHeading->setObjectName("guessingHeading");
+        guessingHeading->setGeometry(QRect(140, 20, 491, 101));
+        guessingHeading->setStyleSheet(QString::fromUtf8("QLabel#guessingHeading{\n"
+"	font: 900 48pt \"Segoe UI Black\";\n"
+"color: rgb(248, 8, 156);\n"
+"}\n"
+""));
+        guessCounterLabel = new QLabel(GuessingPage);
+        guessCounterLabel->setObjectName("guessCounterLabel");
+        guessCounterLabel->setGeometry(QRect(190, 120, 221, 51));
+        guessCounterLabel->setStyleSheet(QString::fromUtf8("QLabel#guessCounterLabel{\n"
+"	color: rgb(0, 0, 0);\n"
+"	font: 20pt \"MS UI Gothic\";\n"
+"}"));
+        guessTheWife = new QPushButton(GuessingPage);
+        guessTheWife->setObjectName("guessTheWife");
+        guessTheWife->setGeometry(QRect(140, 360, 171, 51));
+        guessTheWife->setStyleSheet(QString::fromUtf8("QPushButton#guessTheWife{\n"
+"background-color: rgb(255, 8, 160);\n"
+"border-radius: 15px; border: 5px solid black;\n"
+"color: rgb(0, 0, 0);\n"
+"font: 500 12pt \"Neue Haas Grotesk Text Pro Medi\";\n"
+"qproperty-alignment: AlignCenter; \n"
+"}"));
+        guessTheChef = new QPushButton(GuessingPage);
+        guessTheChef->setObjectName("guessTheChef");
+        guessTheChef->setGeometry(QRect(420, 190, 171, 51));
+        guessTheChef->setStyleSheet(QString::fromUtf8("QPushButton#guessTheChef{\n"
+"background-color: rgb(255, 8, 160);\n"
+"border-radius: 15px; border: 5px solid black;\n"
+"color: rgb(0, 0, 0);\n"
+"font: 500 12pt \"Neue Haas Grotesk Text Pro Medi\";\n"
+"qproperty-alignment: AlignCenter; \n"
+"}"));
+        guessTheGardener = new QPushButton(GuessingPage);
+        guessTheGardener->setObjectName("guessTheGardener");
+        guessTheGardener->setGeometry(QRect(430, 360, 171, 51));
+        guessTheGardener->setStyleSheet(QString::fromUtf8("QPushButton#guessTheGardener{\n"
+"background-color: rgb(255, 8, 160);\n"
+"border-radius: 15px; border: 5px solid black;\n"
+"color: rgb(0, 0, 0);\n"
+"font: 500 12pt \"Neue Haas Grotesk Text Pro Medi\";\n"
+"qproperty-alignment: AlignCenter; \n"
+"}"));
+        guessTheGhost = new QPushButton(GuessingPage);
+        guessTheGhost->setObjectName("guessTheGhost");
+        guessTheGhost->setGeometry(QRect(160, 190, 171, 51));
+        guessTheGhost->setStyleSheet(QString::fromUtf8("QPushButton#guessTheGhost{\n"
+"background-color: rgb(255, 8, 160);\n"
+"border-radius: 15px; border: 5px solid black;\n"
+"color: rgb(0, 0, 0);\n"
+"font: 500 12pt \"Neue Haas Grotesk Text Pro Medi\";\n"
+"qproperty-alignment: AlignCenter; \n"
+"}"));
+        guessTheDog = new QPushButton(GuessingPage);
+        guessTheDog->setObjectName("guessTheDog");
+        guessTheDog->setGeometry(QRect(290, 270, 171, 51));
+        guessTheDog->setStyleSheet(QString::fromUtf8("QPushButton#guessTheDog{\n"
+"background-color: rgb(255, 8, 160);\n"
+"border-radius: 15px; border: 5px solid black;\n"
+"color: rgb(0, 0, 0);\n"
+"font: 500 12pt \"Neue Haas Grotesk Text Pro Medi\";\n"
+"qproperty-alignment: AlignCenter; \n"
+"}"));
+        guessCounter = new QLabel(GuessingPage);
+        guessCounter->setObjectName("guessCounter");
+        guessCounter->setGeometry(QRect(420, 120, 51, 51));
+        guessCounter->setStyleSheet(QString::fromUtf8("QLabel#guessCounter{\n"
+"	font: 700 23pt \"Malgun Gothic\";\n"
+"	color: rgb(0, 0, 0);\n"
+"}"));
+        stackedWidget->addWidget(GuessingPage);
         upButton = new QPushButton(centralwidget);
         upButton->setObjectName("upButton");
         upButton->setGeometry(QRect(110, 510, 51, 51));
@@ -450,7 +544,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(10);
+        stackedWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -465,6 +559,7 @@ public:
         readyButton->setText(QCoreApplication::translate("MainWindow", "Ready", nullptr));
         mainHallbg->setText(QString());
         phone->setText(QString());
+        phoneDescription->setText(QString());
         sittingRoombg->setText(QString());
         dogCharLabel->setText(QCoreApplication::translate("MainWindow", "The Dog", nullptr));
         theDog->setText(QString());
@@ -493,6 +588,14 @@ public:
         wonPageHeading->setText(QCoreApplication::translate("MainWindow", "You Won...", nullptr));
         itemWon->setText(QCoreApplication::translate("MainWindow", "placeholder", nullptr));
         addToInventory->setText(QCoreApplication::translate("MainWindow", "Add to Inventory", nullptr));
+        guessingHeading->setText(QCoreApplication::translate("MainWindow", "Whodunnit?", nullptr));
+        guessCounterLabel->setText(QCoreApplication::translate("MainWindow", "Guesses Left: ", nullptr));
+        guessTheWife->setText(QCoreApplication::translate("MainWindow", "The Wife", nullptr));
+        guessTheChef->setText(QCoreApplication::translate("MainWindow", "The Chef", nullptr));
+        guessTheGardener->setText(QCoreApplication::translate("MainWindow", "The Gardener", nullptr));
+        guessTheGhost->setText(QCoreApplication::translate("MainWindow", "The Ghost", nullptr));
+        guessTheDog->setText(QCoreApplication::translate("MainWindow", "The Dog", nullptr));
+        guessCounter->setText(QCoreApplication::translate("MainWindow", "-1", nullptr));
         upButton->setText(QCoreApplication::translate("MainWindow", "\342\206\221", nullptr));
         downButton->setText(QCoreApplication::translate("MainWindow", "\342\206\223", nullptr));
         rightButton->setText(QCoreApplication::translate("MainWindow", "\342\206\222", nullptr));

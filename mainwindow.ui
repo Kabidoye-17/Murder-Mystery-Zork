@@ -35,7 +35,7 @@ border-image: url(:/images/running.png);
      <rect>
       <x>90</x>
       <y>80</y>
-      <width>811</width>
+      <width>801</width>
       <height>421</height>
      </rect>
     </property>
@@ -46,7 +46,7 @@ border-image: url(:/images/running.png);
      </size>
     </property>
     <property name="currentIndex">
-     <number>10</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="titlescreen">
      <property name="maximumSize">
@@ -82,7 +82,7 @@ margin: 0;
      <widget class="QPushButton" name="playButton">
       <property name="geometry">
        <rect>
-        <x>280</x>
+        <x>310</x>
         <y>250</y>
         <width>171</width>
         <height>41</height>
@@ -173,8 +173,8 @@ margin: 0;
      <widget class="QPushButton" name="phone">
       <property name="geometry">
        <rect>
-        <x>310</x>
-        <y>140</y>
+        <x>350</x>
+        <y>150</y>
         <width>131</width>
         <height>81</height>
        </rect>
@@ -184,6 +184,27 @@ margin: 0;
 	border-image: url(:/images/GuessingPhone.png);
 
 }</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="phoneDescription">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>90</y>
+        <width>281</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 15px; border: 3px solid black;
+color: rgb(0, 0, 0);
+font: 700 6pt &quot;8514oem&quot;;
+qproperty-alignment: AlignCenter; 
+</string>
       </property>
       <property name="text">
        <string/>
@@ -732,7 +753,182 @@ qproperty-alignment: AlignCenter; </string>
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="page"/>
+    <widget class="QWidget" name="GuessingPage">
+     <property name="styleSheet">
+      <string notr="true">QWidget#GuessingPage{
+	background-color: rgb(255, 255, 255);
+	border: 5px solid rgb(236, 91, 200);
+}</string>
+     </property>
+     <widget class="QLabel" name="guessingHeading">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>20</y>
+        <width>491</width>
+        <height>101</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel#guessingHeading{
+	font: 900 48pt &quot;Segoe UI Black&quot;;
+color: rgb(248, 8, 156);
+}
+</string>
+      </property>
+      <property name="text">
+       <string>Whodunnit?</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="guessCounterLabel">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>120</y>
+        <width>221</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel#guessCounterLabel{
+	color: rgb(0, 0, 0);
+	font: 20pt &quot;MS UI Gothic&quot;;
+}</string>
+      </property>
+      <property name="text">
+       <string>Guesses Left: </string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="guessTheWife">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>360</y>
+        <width>171</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton#guessTheWife{
+background-color: rgb(255, 8, 160);
+border-radius: 15px; border: 5px solid black;
+color: rgb(0, 0, 0);
+font: 500 12pt &quot;Neue Haas Grotesk Text Pro Medi&quot;;
+qproperty-alignment: AlignCenter; 
+}</string>
+      </property>
+      <property name="text">
+       <string>The Wife</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="guessTheChef">
+      <property name="geometry">
+       <rect>
+        <x>420</x>
+        <y>190</y>
+        <width>171</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton#guessTheChef{
+background-color: rgb(255, 8, 160);
+border-radius: 15px; border: 5px solid black;
+color: rgb(0, 0, 0);
+font: 500 12pt &quot;Neue Haas Grotesk Text Pro Medi&quot;;
+qproperty-alignment: AlignCenter; 
+}</string>
+      </property>
+      <property name="text">
+       <string>The Chef</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="guessTheGardener">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>360</y>
+        <width>171</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton#guessTheGardener{
+background-color: rgb(255, 8, 160);
+border-radius: 15px; border: 5px solid black;
+color: rgb(0, 0, 0);
+font: 500 12pt &quot;Neue Haas Grotesk Text Pro Medi&quot;;
+qproperty-alignment: AlignCenter; 
+}</string>
+      </property>
+      <property name="text">
+       <string>The Gardener</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="guessTheGhost">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>190</y>
+        <width>171</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton#guessTheGhost{
+background-color: rgb(255, 8, 160);
+border-radius: 15px; border: 5px solid black;
+color: rgb(0, 0, 0);
+font: 500 12pt &quot;Neue Haas Grotesk Text Pro Medi&quot;;
+qproperty-alignment: AlignCenter; 
+}</string>
+      </property>
+      <property name="text">
+       <string>The Ghost</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="guessTheDog">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>270</y>
+        <width>171</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton#guessTheDog{
+background-color: rgb(255, 8, 160);
+border-radius: 15px; border: 5px solid black;
+color: rgb(0, 0, 0);
+font: 500 12pt &quot;Neue Haas Grotesk Text Pro Medi&quot;;
+qproperty-alignment: AlignCenter; 
+}</string>
+      </property>
+      <property name="text">
+       <string>The Dog</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="guessCounter">
+      <property name="geometry">
+       <rect>
+        <x>420</x>
+        <y>120</y>
+        <width>51</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel#guessCounter{
+	font: 700 23pt &quot;Malgun Gothic&quot;;
+	color: rgb(0, 0, 0);
+}</string>
+      </property>
+      <property name="text">
+       <string>-1</string>
+      </property>
+     </widget>
+    </widget>
    </widget>
    <widget class="QPushButton" name="upButton">
     <property name="geometry">

@@ -1,5 +1,10 @@
 #include "player.h"
 #include <iostream>
+
+player::player(){
+
+}
+
 player::~player(){
     cout << "player memory deallocated"<< endl;
 }

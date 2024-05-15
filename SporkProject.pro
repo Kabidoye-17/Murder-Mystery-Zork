@@ -17,6 +17,7 @@ SOURCES += \
     mainwindow.cpp \
     mathpuzzle.cpp \
     object.cpp \
+    phone.cpp \
     player.cpp \
     puzzle.cpp \
     riddlepuzzle.cpp \
@@ -31,6 +32,7 @@ HEADERS += \
     mainwindow.h \
     mathpuzzle.h \
     object.h \
+    phone.h \
     player.h \
     puzzle.h \
     riddlepuzzle.h \

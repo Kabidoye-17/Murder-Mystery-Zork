@@ -1,11 +1,18 @@
 #ifndef GAMEINFORMATION_H
 #define GAMEINFORMATION_H
 
-extern int guessesLeft; // Declaration of guessesLeft as a global variable
+union guessStatus{
+     int clues;
+     int guesses;
+};
+
+extern guessStatus gs;
 
 namespace gameInformation {
 int checkGuessesLeft();
 void decreaseGuesses();
+void incrementClues();
+bool checkClues();
 }
 
 #endif // GAMEINFORMATION_H

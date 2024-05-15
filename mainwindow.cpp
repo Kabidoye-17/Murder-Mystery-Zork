@@ -17,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->objectDescription->hide();
     ui->characterClue->hide();
     ui->giveItem->hide();
+    ui->phoneDescription->hide();
 }
 
 MainWindow::~MainWindow()
@@ -104,7 +105,6 @@ void MainWindow::on_cButton_clicked()
 void MainWindow::correctnessCheck(string uc){
     room* r = rc->getCurrentRoom();
     MathPuzzle* p = r->getPuzzle();
-    Character* c = r->getCharacter();
     string correctAnswer = p->getCorrectAnswer();
 
     if (uc == correctAnswer){
@@ -114,7 +114,14 @@ void MainWindow::correctnessCheck(string uc){
         ui->stackedWidget->setCurrentIndex(9);
         ui->itemWon->setText(QString::fromStdString("The " + r->getRoomItem().getName()));
         rc->addToCharacterInventory(r->getRoomItem());
+        incrementClues();
+        cout << gs.clues << endl;
+        if (checkClues() == 1){
+            rc->getGuessPhone()->setInteract(1);
+        }
         p->setInteract(false);
+
+
 
     } else {
         ui->correctness->setText(QString::fromStdString("Incorrect"));
@@ -288,6 +295,54 @@ void MainWindow::on_PuzzleButton_clicked()
 
         }
     }
+
+}
+
+
+void MainWindow::on_phone_clicked()
+{
+    // if you can interract
+    if (rc->getGuessPhone()->getInteract()){
+    gs.guesses = 3;
+    ui->stackedWidget->setCurrentIndex(10);
+    ui->guessCounter->setText(QString::fromStdString(to_string(checkGuessesLeft())));
+    ui->leftButton->hide();
+    ui->rightButton->hide();
+    ui->upButton->hide();
+    ui->downButton->hide();
+    }
+}
+
+
+void MainWindow::on_phone_pressed()
+{
+
+    ui->phoneDescription->setText(QString::fromStdString(rc->getGuessPhone()->displayObjectDescription()));
+    ui->phoneDescription->show();
+}
+
+
+void MainWindow::on_phone_released()
+{
+    ui->phoneDescription->hide();
+}
+
+
+void MainWindow::on_guessTheGhost_clicked()
+{
+    cout << "it got here" << endl;
+    bool innocence = rc->getGuessPhone()->getInnocenceStatus("Ella's ghost");
+    cout << "innocennce gotten"<< endl;
+    cout << innocence << endl;
+    if (innocence){
+        decreaseGuesses();
+        ui->guessCounter->setText(QString::fromStdString(to_string(checkGuessesLeft())));
+    }
+}
+
+
+void MainWindow::on_guessTheDog_clicked()
+{
 
 }
 

@@ -65,6 +65,16 @@ private slots:
 
     void on_PuzzleButton_clicked();
 
+    void on_phone_clicked();
+
+    void on_phone_pressed();
+
+    void on_phone_released();
+
+    void on_guessTheGhost_clicked();
+
+    void on_guessTheDog_clicked();
+
 private:
     Ui::MainWindow *ui;
     roomController *rc;

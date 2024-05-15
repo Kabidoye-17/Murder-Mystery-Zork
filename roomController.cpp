@@ -1,11 +1,9 @@
 #include "roomController.h"
 #include "room.h"
+#include "player.h"
 #include <iostream>
-player::player(){
 
-}
 roomController::roomController(){
-    this->currentPlayer = new player();
     createRooms();
 }
 
@@ -18,7 +16,11 @@ void roomController::setCurrentRoom(room *r){
 }
 
 void roomController::createRooms(){
+    gs.clues = 0;
 
+    // create the player
+    player* mainPlayer = new player();
+    currentPlayer = mainPlayer;
     // instantiating the rooms
     room *mainHall, *kitchen, *garden, *bedroom, *sittingRoom, *attic;
     mainHall = new room(2);
@@ -78,6 +80,10 @@ void roomController::createRooms(){
     Item soul("soul");
     attic->setRoomItem(soul);
 
+    // create and set the guessing phone
+    phone* guessingPhone = new phone(*theWife, *theGardener, *theDog, *theChef, *ellasGhost);
+    setGuessPhone(guessingPhone);
+
 
 
     setCurrentRoom(mainHall);
@@ -107,4 +113,10 @@ void roomController::removeFromCharacterInventory(Item i){
 
 player* roomController::getPlayer(){
     return this->currentPlayer;
+}
+phone* roomController::getGuessPhone(){
+    return this->guessPhone;
+}
+void roomController::setGuessPhone(phone* p){
+    this->guessPhone = p;
 }

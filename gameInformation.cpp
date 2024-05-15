@@ -1,17 +1,29 @@
 #include "gameInformation.h"
 
-int guessesLeft = 3; // Definition and initialization of guessesLeft
+guessStatus gs;
 
 namespace gameInformation {
 int checkGuessesLeft() {
-    if (guessesLeft > 0) {
-        return guessesLeft;
+    if (gs.guesses > 0) {
+        return gs.guesses;
     } else {
         return -1;
     }
 }
 
 void decreaseGuesses() {
-    guessesLeft--;
+    --gs.guesses;
 }
+
+void incrementClues(){
+    gs.clues ++;
+}
+bool checkClues(){
+    if (gs.clues < 5){
+        return false;
+    }else{
+        return true;
+    }
+}
+
 }

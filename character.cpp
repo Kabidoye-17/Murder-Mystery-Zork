@@ -16,6 +16,12 @@ string Character::getDialogue(){
     }
 
 }
+
+
+bool Character::getInnocence(){
+    return this->innocence;
+}
+
 string Character::displayObjectDescription(){
     string chardisplay =  this->getName() + " will not speak until you give them their: " + this->getWant();
     return chardisplay;
