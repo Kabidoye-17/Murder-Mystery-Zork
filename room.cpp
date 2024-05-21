@@ -19,8 +19,8 @@ map<string, room *> room::getExits(){
     return this->exits;
 }
 
-void room::setPuzzle(MathPuzzle* obj){
-    this->roomPuzzle = obj;
+void room::setPuzzle(MathPuzzle &obj){
+    this->roomPuzzle = &obj;
 }
 
 MathPuzzle* room::getPuzzle() {
@@ -31,8 +31,8 @@ Character* room::getCharacter(){
     return this->roomCharacter;
 }
 
-void room::setCharacter(Character *c){
-    this->roomCharacter = c;
+void room::setCharacter(Character &c){
+    this->roomCharacter = &c;
 }
 
 void room::setRoomItem(Item i){

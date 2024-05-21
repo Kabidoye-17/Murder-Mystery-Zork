@@ -3,15 +3,16 @@
 #include "object.h"
 #include "character.h"
 #include <string>
+#include <string.h>
 using namespace std;
 
 class phone : public object
 {
     Character contacts[5];
 public:
-    phone(Character c1, Character c2, Character c3, Character c4, Character c5);
+    phone(Character const& c1, Character const& c2, Character const& c3, Character const& c4, Character const& c5);
     bool getInnocenceStatus(string charName);
-    Character getCharacter(string charName );
+    Character* getCharacter(string charName );
     string getMurderer();
     string displayObjectDescription() override;
 };

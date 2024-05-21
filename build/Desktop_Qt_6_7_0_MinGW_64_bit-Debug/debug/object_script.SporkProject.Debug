@@ -9,7 +9,6 @@ debug/object.o
 debug/phone.o
 debug/player.o
 debug/puzzle.o
-debug/riddlepuzzle.o
 debug/room.o
 debug/roomController.o
 debug/qrc_resource.o

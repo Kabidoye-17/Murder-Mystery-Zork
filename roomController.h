@@ -4,7 +4,6 @@
 #include "room.h"
 #include "object.h"
 #include"mathpuzzle.h"
-#include "riddlepuzzle.h"
 #include "character.h"
 #include "player.h"
 #include "gameInformation.h"

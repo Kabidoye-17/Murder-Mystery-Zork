@@ -42,27 +42,34 @@ void roomController::createRooms(){
     // creating the room puzzles and adding them to the rooms
     // on the heap cause it'll go out of scope and become null (learnt the hard way)
     MathPuzzle* atticPuzzle = new MathPuzzle("what is my name", "Kelly", "Jenna", "Kelly", "Portia");
-    attic->setPuzzle(atticPuzzle);
+    attic->setPuzzle(*atticPuzzle);
+
     MathPuzzle* bedroomPuzzle = new MathPuzzle("Beep?", "Boop", "Boop", "Buup", "Biip");
-    bedroom->setPuzzle(bedroomPuzzle);
+    bedroom->setPuzzle(*bedroomPuzzle);
+
     MathPuzzle* kitchenPuzzle = new MathPuzzle("placeholder?", "yeah", "yes", "no", "yeah");
-    kitchen->setPuzzle(kitchenPuzzle);
+    kitchen->setPuzzle(*kitchenPuzzle);
+
     MathPuzzle* sittingRoomPuzzle = new MathPuzzle("RIDDLE ME THIS", "an", "an", "bn", "cn");
-    sittingRoom->setPuzzle(sittingRoomPuzzle);
+    sittingRoom->setPuzzle(*sittingRoomPuzzle);
+
     MathPuzzle* gardenPuzzle = new MathPuzzle("RIDDLE ME THIS", "an", "an", "bn", "cn");
-    garden->setPuzzle(gardenPuzzle);
+    garden->setPuzzle(*gardenPuzzle);
 
     // creating the room Characters and adding them to the rooms
     Character* theWife = new Character("the wife", "wife clue", true, "lighter");
-    bedroom->setCharacter(theWife);
+    bedroom->setCharacter(*theWife);
     Character* theDog = new Character("the dog", "dog clue", false, "bone");
-    sittingRoom->setCharacter(theDog);
+    sittingRoom->setCharacter(*theDog);
     Character* theGardener = new Character("the gardener", "gardener clue", true, "shovel");
-    garden->setCharacter(theGardener);
+    garden->setCharacter(*theGardener);
     Character* theChef = new Character("the chef", "chef clue", true, "cheese");
-    kitchen->setCharacter(theChef);
+    kitchen->setCharacter(*theChef);
     Character* ellasGhost = new Character("Ella's ghost", "ella's ghost clue", true, "soul");
-    attic->setCharacter(ellasGhost);
+    attic->setCharacter(*ellasGhost);
+
+    phone* guessingPhone = new phone(*theWife, *theGardener, *theChef,*ellasGhost, *theDog);
+    setGuessPhone(guessingPhone);
 
     // create room items and add them to the room
     Item lighter("lighter");
@@ -81,8 +88,7 @@ void roomController::createRooms(){
     attic->setRoomItem(soul);
 
     // create and set the guessing phone
-    phone* guessingPhone = new phone(*theWife, *theGardener, *theDog, *theChef, *ellasGhost);
-    setGuessPhone(guessingPhone);
+
 
 
 

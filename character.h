@@ -13,6 +13,7 @@ private:
     bool innocence;
 public:
     Character(string name = "", string clue = "", bool innocence = 1, string want = "");
+    Character(const Character& other);
     string getDialogue();
     string getWant();
     bool getInnocence();

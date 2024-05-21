@@ -368,7 +368,7 @@ void MainWindow::on_guessTheGardener_clicked()
 }
 
 void MainWindow::guessHandler(bool b){
-    if (b){
+    if (b== true){
         decreaseGuesses();
         int temp = checkGuessesLeft();
         if (temp <= 0){
@@ -377,7 +377,7 @@ void MainWindow::guessHandler(bool b){
         }else {
             ui->guessCounter->setText(QString::fromStdString(to_string(checkGuessesLeft())));
         }
-    }else{
+    }else if (b == false){
         ui->murdererLabel_2->setText(QString::fromStdString(rc->getGuessPhone()->getMurderer()));
         ui->stackedWidget->setCurrentIndex(11);
     }

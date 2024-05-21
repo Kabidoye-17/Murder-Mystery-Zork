@@ -28,9 +28,9 @@ class room {
         void setRoomItem(Item i);
         Item getRoomItem();
         map<string, room*> getExits();
-        void setPuzzle(MathPuzzle* obj);
+        void setPuzzle(MathPuzzle &obj);
         MathPuzzle* getPuzzle();
-        void setCharacter(Character* c);
+        void setCharacter(Character &c);
         Character* getCharacter();
         room(int pn);
     protected:

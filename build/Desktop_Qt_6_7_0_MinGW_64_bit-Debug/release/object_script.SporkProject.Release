@@ -9,7 +9,6 @@ release/object.o
 release/phone.o
 release/player.o
 release/puzzle.o
-release/riddlepuzzle.o
 release/room.o
 release/roomController.o
 release/qrc_resource.o

@@ -1,13 +1,13 @@
 #include "character.h"
 #include <iostream>
 
-Character::Character(string name, string clue, bool innocence, string want){
-    this->clue = clue;
-    this->name = name;
-    this->innocence = innocence;
+Character::Character(string name, string clue, bool innocence, string want) : name(name), clue(clue), innocence(innocence), want(want){
     this->interact = false;
-    this->want = want;
 }
+
+Character::Character(const Character& other) :
+    name(other.name), clue(other.clue), want(other.want), innocence(other.innocence) {}
+
 string Character::getDialogue(){
     if (this->interact == false){
         return displayObjectDescription();

@@ -20,7 +20,6 @@ SOURCES += \
     phone.cpp \
     player.cpp \
     puzzle.cpp \
-    riddlepuzzle.cpp \
     room.cpp \
     roomController.cpp
 
@@ -35,7 +34,6 @@ HEADERS += \
     phone.h \
     player.h \
     puzzle.h \
-    riddlepuzzle.h \
     room.h \
     roomController.h
 
