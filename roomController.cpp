@@ -41,34 +41,48 @@ void roomController::createRooms(){
 
     // creating the room puzzles and adding them to the rooms
     // on the heap cause it'll go out of scope and become null (learnt the hard way)
-    MathPuzzle* atticPuzzle = new MathPuzzle("what is my name", "Kelly", "Jenna", "Kelly", "Portia");
-    attic->setPuzzle(*atticPuzzle);
+    MathPuzzle* atticPuzzle = new MathPuzzle("What is the result of 5 × (3 + 2)?", "15", "10", "15", "25");
+    MathPuzzle& atticPuzzleRef = *atticPuzzle;
+    attic->setPuzzle(atticPuzzleRef);
 
-    MathPuzzle* bedroomPuzzle = new MathPuzzle("Beep?", "Boop", "Boop", "Buup", "Biip");
-    bedroom->setPuzzle(*bedroomPuzzle);
+    MathPuzzle* bedroomPuzzle = new MathPuzzle("If 3/4 of a pizza is divided equally among 6 friends, how much does each friend get?", "1/4", "1/8", "1/2", "1/4");
+    MathPuzzle& bedroomPuzzleRef = *bedroomPuzzle;
+    bedroom->setPuzzle(bedroomPuzzleRef);
 
-    MathPuzzle* kitchenPuzzle = new MathPuzzle("placeholder?", "yeah", "yes", "no", "yeah");
-    kitchen->setPuzzle(*kitchenPuzzle);
+    MathPuzzle* kitchenPuzzle = new MathPuzzle("Solve for 2x+5 = 17?", "6", "6", "8", "12");
+    MathPuzzle& kitchenPuzzleRef = *kitchenPuzzle;
+    kitchen->setPuzzle(kitchenPuzzleRef);
 
-    MathPuzzle* sittingRoomPuzzle = new MathPuzzle("RIDDLE ME THIS", "an", "an", "bn", "cn");
-    sittingRoom->setPuzzle(*sittingRoomPuzzle);
+    MathPuzzle* sittingRoomPuzzle = new MathPuzzle("What is the area of a rectangle with length 8 units and width 5 units?", "40", "13", "30", "40");
+    MathPuzzle& sittingRoomPuzzleRef = *sittingRoomPuzzle;
+    sittingRoom->setPuzzle(sittingRoomPuzzleRef);
 
-    MathPuzzle* gardenPuzzle = new MathPuzzle("RIDDLE ME THIS", "an", "an", "bn", "cn");
-    garden->setPuzzle(*gardenPuzzle);
+    MathPuzzle* gardenPuzzle = new MathPuzzle("If f(x)=2x^2−3x+1, what is f(3)?", "7", "7", "10", "13");
+    MathPuzzle& gardenPuzzleRef = *gardenPuzzle;
+    garden->setPuzzle(gardenPuzzleRef);
 
     // creating the room Characters and adding them to the rooms
-    Character* theWife = new Character("the wife", "wife clue", true, "lighter");
-    bedroom->setCharacter(*theWife);
-    Character* theDog = new Character("the dog", "dog clue", false, "bone");
-    sittingRoom->setCharacter(*theDog);
-    Character* theGardener = new Character("the gardener", "gardener clue", true, "shovel");
-    garden->setCharacter(*theGardener);
-    Character* theChef = new Character("the chef", "chef clue", true, "cheese");
-    kitchen->setCharacter(*theChef);
-    Character* ellasGhost = new Character("Ella's ghost", "ella's ghost clue", true, "soul");
-    attic->setCharacter(*ellasGhost);
+    Character* theWife = new Character("the wife", "Our dog seemed uneasy that night, pacing around as if sensing danger", true, "lighter");
+    Character& wifeRef = *theWife;
+    bedroom->setCharacter(wifeRef);
 
-    phone* guessingPhone = new phone(*theWife, *theGardener, *theChef,*ellasGhost, *theDog);
+    Character* theDog = new Character("the dog", "Woof.. Saw something bad... Woof...", false, "bone");
+    Character& dogRef = *theDog;
+    sittingRoom->setCharacter(dogRef);
+
+    Character* theGardener = new Character("the gardener", "Spotted the dog digging in the garden late. Strange behavior.", true, "shovel");
+    Character& gardenerRef = *theGardener;
+    garden->setCharacter(gardenerRef);
+
+    Character* theChef = new Character("the chef", "Noticed a missing knife from my kitchen that night. Unsettling.", true, "cheese");
+    Character& chefRef = *theChef;
+    kitchen->setCharacter(chefRef);
+
+    Character* ellasGhost = new Character("Ella's ghost", "Felt a chilling presence near the sitting room before... well, you know.", true, "soul");
+    Character& ghostRef = *ellasGhost;
+    attic->setCharacter(ghostRef);
+
+    phone* guessingPhone = new phone(wifeRef, gardenerRef, chefRef, ghostRef, dogRef);
     setGuessPhone(guessingPhone);
 
     // create room items and add them to the room
@@ -113,7 +127,7 @@ void roomController::addToCharacterInventory(Item i){
     (this->currentPlayer->getInventory())+= i;
 
 }
-void roomController::removeFromCharacterInventory(Item i){
+void roomController::removeFromCharacterInventory(Item &i){
     (this->currentPlayer->getInventory()) -= i;
 }
 
@@ -125,4 +139,9 @@ phone* roomController::getGuessPhone(){
 }
 void roomController::setGuessPhone(phone* p){
     this->guessPhone = p;
+}
+roomController::~roomController(){
+    delete this->currentRoom;
+    delete this->guessPhone;
+    delete this->currentPlayer;
 }

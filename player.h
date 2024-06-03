@@ -13,7 +13,7 @@ private:
 public:
     player();
     Item* getItem(string n);
-    Inventory<Item> getInventory();
+    Inventory<Item>& getInventory();
     ~player();
 };
 

@@ -15,6 +15,7 @@ public:
     Character* getCharacter(string charName );
     string getMurderer();
     string displayObjectDescription() override;
+
 };
 
 #endif // PHONE_H

@@ -326,7 +326,7 @@ public:
 "}"));
         question = new QLabel(questionPage);
         question->setObjectName("question");
-        question->setGeometry(QRect(30, 160, 701, 20));
+        question->setGeometry(QRect(30, 160, 701, 101));
         question->setStyleSheet(QString::fromUtf8("QLabel#question{\n"
 "	color: rgb(0, 0, 0);\n"
 "	font: 700 12pt \"8514oem\";\n"
@@ -596,7 +596,7 @@ public:
 ""));
         characterClue = new QLabel(centralwidget);
         characterClue->setObjectName("characterClue");
-        characterClue->setGeometry(QRect(110, 20, 941, 41));
+        characterClue->setGeometry(QRect(110, 10, 941, 61));
         characterClue->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
 "border-radius: 15px; border: 5px solid white;\n"
 "color: rgb(0, 0, 0);\n"
@@ -625,7 +625,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(12);
+        stackedWidget->setCurrentIndex(8);
 
 
         QMetaObject::connectSlotsByName(MainWindow);

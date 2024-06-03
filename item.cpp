@@ -11,7 +11,7 @@ bool Item::operator==(Item other) {
     return (name == other.name);
 }
 Item::~Item(){
-
+    cout << "Item has been deleted" << endl;
 }
 
 

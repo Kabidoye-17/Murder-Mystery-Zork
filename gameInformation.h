@@ -5,7 +5,7 @@ union guessStatus{
      int clues;
      int guesses;
 };
-
+// creates a
 extern guessStatus gs;
 
 namespace gameInformation {

@@ -28,7 +28,8 @@ public:
     int switchRoom(string *direction);
     void createRooms();
     void addToCharacterInventory(Item i);
-    void removeFromCharacterInventory(Item i);
+    void removeFromCharacterInventory(Item& i);
+    ~roomController();
 
 
 };

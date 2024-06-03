@@ -11,12 +11,12 @@
 #include "mathpuzzle.h"
 using namespace std;
 
-struct roomBitStructure{
-    int pageNumber = 16;
+struct roomBitStructure {
+    unsigned int pageNumber : 5;
 };
-
 class room {
     private:
+        roomBitStructure rbs;
         map<string, room*> exits;
         Character* roomCharacter;
         MathPuzzle* roomPuzzle;
@@ -33,8 +33,8 @@ class room {
         void setCharacter(Character &c);
         Character* getCharacter();
         room(int pn);
-    protected:
-        roomBitStructure rbs;
+        ~room();
+
 };
 
 #endif // ROOM_H
