@@ -1,9 +1,11 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "roomController.h"
+#include "pageswitchingexception.h"
 #include <QTimer>
 #include <iostream>
 using namespace std;
+using namespace gameInformation;
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
@@ -44,8 +46,20 @@ void MainWindow::on_readyButton_clicked()
 void MainWindow::on_upButton_clicked()
 {
     string direction = "North";
-    int nextPage = rc->switchRoom(&direction);
-    ui->stackedWidget->setCurrentIndex(nextPage);
+    try{
+        int nextPage = rc->switchRoom(&direction);
+        if ((nextPage < 0) || (nextPage > 16)){
+            throw pageSwitchingException(nextPage);
+        } else{
+            ui->stackedWidget->setCurrentIndex(nextPage);
+        }
+    }catch(pageSwitchingException& e){
+        cout << e.what() << endl;
+        cout << "the user will remain where they are" << endl;
+        rc->setCurrentRoom(rc->getCurrentRoom());
+
+
+    }
 
 
 }
@@ -54,8 +68,19 @@ void MainWindow::on_upButton_clicked()
 void MainWindow::on_downButton_clicked()
 {
     string direction = "South";
-    int nextPage = rc->switchRoom(&direction);
-    ui->stackedWidget->setCurrentIndex(nextPage);
+    try{
+        int nextPage = rc->switchRoom(&direction);
+        if ((nextPage < 0) || (nextPage > 16)){
+            throw pageSwitchingException(nextPage);
+        } else{
+            ui->stackedWidget->setCurrentIndex(nextPage);
+        }
+    }catch(pageSwitchingException& e){
+        cout << e.what() << endl;
+        cout << "the user will remain where they are" << endl;
+        rc->setCurrentRoom(rc->getCurrentRoom());
+    }
+
 
 
 }
@@ -63,10 +88,19 @@ void MainWindow::on_downButton_clicked()
 
 void MainWindow::on_rightButton_clicked()
 {
-
     string direction = "East";
+    try{
     int nextPage = rc->switchRoom(&direction);
+    if ((nextPage < 0) || (nextPage > 16)){
+        throw pageSwitchingException(nextPage);
+    } else{
     ui->stackedWidget->setCurrentIndex(nextPage);
+    }
+    }catch(pageSwitchingException& e){
+        cout << e.what() << endl;
+        cout << "the user will remain where they are" << endl;
+        rc->setCurrentRoom(rc->getCurrentRoom());
+    }
 
 
 
@@ -76,8 +110,19 @@ void MainWindow::on_rightButton_clicked()
 void MainWindow::on_leftButton_clicked()
 {
     string direction = "West";
-    int nextPage = rc->switchRoom(&direction);
-    ui->stackedWidget->setCurrentIndex(nextPage);
+    try{
+        int nextPage = rc->switchRoom(&direction);
+        if ((nextPage < 0) || (nextPage > 16)){
+            throw pageSwitchingException(nextPage);
+        } else{
+            ui->stackedWidget->setCurrentIndex(nextPage);
+        }
+    }catch(pageSwitchingException& e){
+        cout << e.what() << endl;
+        cout << "the user will remain where they are" << endl;
+        rc->setCurrentRoom(rc->getCurrentRoom());
+
+    }
 
 }
 
@@ -218,41 +263,21 @@ void MainWindow::on_giveItem_clicked()
     player* pl = rc->getPlayer();
     MathPuzzle* p = r->getPuzzle();
     Character* c = r->getCharacter();
-    cout<< 2<< endl;
     // if we are not in the main wall
     if (r->getPageNumber() != 2) {
-        cout << 3 << endl;
         // puzzle isnt interactable
         if (p->getInteract() == 0) {
-            cout << 4 << endl;
             // if the item is in player inventory
-            Item* neededItemPtr = pl->getItem(r->getRoomItem().getName());
+            Item* neededItemPtr = pl->getItem(c->getWant());
             if (neededItemPtr) {
-                Item& neededItem = *neededItemPtr;
-                // Print the item's name
-                cout << "Item Name: " << neededItem.getName() << endl;
-            } else {
-                // Handle the case where neededItemPtr is null
-                cout << "Item is null" << endl;
-            }
-            Item& neededItem = *neededItemPtr;
-            cout<< "print 1" << endl;
-            cout<< r->getRoomItem().getName() << endl;
-            cout<< "print 2" << endl;
-            cout << neededItem.getName()<< endl;
-            if (!neededItem.getName().compare("")) {
-                    cout << 6 << endl;
-                removeFromInventory(r->getRoomItem().getName());
-                    cout << 7 << endl;
-                rc->removeFromCharacterInventory(neededItem); // Pass the object, not the pointer
-                    cout << 8 << endl;
-                    c->setInteract(1);
+                if (!(neededItemPtr->getName() == "")) {
+                    removeFromInventory(r->getRoomItem().getName());
+                    rc->removeFromCharacterInventory(*neededItemPtr); // Pass the object, not the pointer
+                        c->setInteract(1);
                 }
             }
         }
-
-
-}
+    }}
 
 void MainWindow::on_PuzzleButton_pressed()
 {
@@ -275,16 +300,11 @@ void MainWindow::on_PuzzleButton_released()
 
 void MainWindow::on_PuzzleButton_clicked()
 {
-    cout << "puzzle button accessed " << endl;
     room* r = rc->getCurrentRoom();
-    cout << "room gotten" << endl;
     if (r->getPageNumber() != 2){
-        cout << "not in the hall" << endl;
         bool status = r->getPuzzle()->getInteract();
         MathPuzzle* p = r->getPuzzle();
-        cout << "puzzle accquired" << endl;
         if (status == 1){
-            cout << "you can interact!"<< endl;
             ui->question->setText(QString::fromStdString(p->getQuestion()));
             ui->aAnswer->setText(QString::fromStdString(p->getAnswers()[0]));
             ui->bAnswer->setText(QString::fromStdString(p->getAnswers()[1]));

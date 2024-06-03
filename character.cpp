@@ -1,4 +1,4 @@
-#include "character.h"
+    #include "character.h"
 #include <iostream>
 
 Character::Character(string name, string clue, bool innocence, string want) : name(name), clue(clue), innocence(innocence), want(want){

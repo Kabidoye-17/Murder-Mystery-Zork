@@ -17,6 +17,7 @@ SOURCES += \
     mainwindow.cpp \
     mathpuzzle.cpp \
     object.cpp \
+    pageswitchingexception.cpp \
     phone.cpp \
     player.cpp \
     puzzle.cpp \
@@ -31,6 +32,7 @@ HEADERS += \
     mainwindow.h \
     mathpuzzle.h \
     object.h \
+    pageswitchingexception.h \
     phone.h \
     player.h \
     puzzle.h \

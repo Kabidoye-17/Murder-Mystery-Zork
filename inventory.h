@@ -12,8 +12,7 @@ public:
     void operator+=(T im);
     void operator -=(T i);
     friend class player;
-
-
+    ~Inventory();
 };
 
 #endif // INVENTORY_H
