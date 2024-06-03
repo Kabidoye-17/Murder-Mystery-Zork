@@ -39,6 +39,7 @@ void room::setCharacter(Character &c){
 
 void room::setRoomItem(Item i){
     this->roomItem = i;
+    cout << "When setting the room, the item is: " << i.getName() << endl;
 }
 
 Item room::getRoomItem(){
