@@ -856,6 +856,7 @@ release/mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		../../../../../../qt/6.7.0/mingw_64/include/QtWidgets/QStackedWidget \
 		../../../../../../qt/6.7.0/mingw_64/include/QtWidgets/qstackedwidget.h \
 		../../../../../../qt/6.7.0/mingw_64/include/QtWidgets/QWidget \
+		../../pageswitchingexception.h \
 		../../../../../../qt/6.7.0/mingw_64/include/QtCore/QTimer \
 		../../../../../../qt/6.7.0/mingw_64/include/QtCore/qtimer.h \
 		../../../../../../qt/6.7.0/mingw_64/include/QtCore/qbasictimer.h
